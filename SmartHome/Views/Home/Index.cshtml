@@ -1,0 +1,180 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<section>
+    <div class="container position-relative px-3 main-container">
+        <div class="row gy-3 mb-3">
+            <div class="col-lg-8">
+                <div class="security-container rounded-3 mb-2 p-4 bg-white">
+                    <h6 class="box-title fw-bold">Home System</h6>
+                    <div class="table-responsive-md">
+                        <table id="tblHomeSystems" class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>System</th>
+                                    <th>Status</th>
+                                    <th>History</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                    <div class="row gy-3 gy-lg-5 gy-xl-3">
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="weather-container position-relative rounded-3 p-4">
+                                <div class="date-time row">
+                                    <h6 class="col-10 box-title fw-bold fs-3">@DateTime.Today.ToLongDateString().Split(",")[0]</h6>
+                                    <a href="#" class="col-1 pt-1">
+                                        <i class="history-icon fas fa-cog fs-3"></i>
+                                    </a>
+                                    <span class="col-12 text-secondary date">
+                                        @DateTime.Today.ToLongDateString().Split(",")[1],
+                                        @DateTime.Today.ToLongDateString().Split(",")[2]
+                                    </span>
+                                </div>
+
+                                <div  class="weather-content d-flex flex-row mt-3">
+                                    <div id="temperature" class="temperature fs-4 fw-bold mt-2 me-5">
+                                    </div>
+                                    <div id="humidity" class="humidity fs-4 fw-bold mt-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="garden-container rounded-3 bg-white p-4">
+                                <div class="date-time row">
+                                    <h6 class="col-10 box-title fw-bold fs-6">Garden</h6>
+                                    <a href="#" class="col-1">
+                                        <i class="history-icon fas fa-cog fs-3"></i>
+                                    </a>
+                                </div>
+                                <div class="garden-content mt-4">
+                                    <div id="WaterTank" class="d-flex fw-bold">
+                                    </div>
+
+                                    <div id="WaterTankProgress" class="progress mt-2">
+                                    </div>
+                                </div>
+                                <div class="garden-content mt-4">
+                                    <div  id="garden" class="d-flex fw-bold">
+                                    </div>
+
+                                    <div id="gardenProgress" class="progress mt-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="row gy-3">
+            <div class="col-12 col-md-4 col-lg-4">
+                <div class="at-home-container rounded-3 bg-white">
+                    <h6 class=" box-title fw-bold p-4">At home now</h6>
+                    <div id="users" class="row g-0">
+                    </div>
+                </div>
+             </div>
+
+            <div class="col-12 col-md-8 col-lg-8">
+                <div class="devices-container rounded-3 p-4 bg-white">
+                    <div class="row g-2 g-md-4">
+                        <h6 class="col-12 box-title fw-bold">Main Devices</h6>
+
+                        <div class="col-12 col-sm-6 col-xl-3">
+                            <div class="p-3 alert-secondary rounded-3 d-flex justify-content-between justify-content-xl-center">
+                                <div class="d-flex flex-column">
+                                    <i class="fas fa-tv fs-5 text-center mt-1 mb-2"></i>
+                                    <span class="fw-bold">TV</span>
+                                </div>
+
+                                <div class="form-check form-switch d-flex flex-column justify-content-between justify-content-xl-center align-items-end">
+                                    <input class="form-check-input mb-2"
+                                           type="checkbox"
+                                           id="flexSwitchCheckChecked"
+                                           checked />
+                                    <label class="form-check-label fw-bold"
+                                           for="flexSwitchCheckChecked">
+                                        On
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-xl-3">
+                            <div class="p-3 alert-secondary rounded-3 d-flex justify-content-between justify-content-xl-center">
+                                <div class="d-flex flex-column">
+                                    <i class="fas fa-wifi fs-5 text-center mt-1 mb-2"></i>
+                                    <span class="fw-bold">Wifi</span>
+                                </div>
+
+                                <div class="form-check form-switch d-flex flex-column justify-content-between justify-content-xl-center align-items-end">
+                                    <input class="form-check-input mb-2"
+                                           type="checkbox"
+                                           id="flexSwitchCheckChecked"
+                                           checked />
+                                    <label class="form-check-label fw-bold"
+                                           for="flexSwitchCheckChecked">
+                                        On
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-xl-3">
+                            <div class="p-3 alert-secondary rounded-3 d-flex justify-content-between justify-content-xl-center">
+                                <div class="d-flex flex-column">
+                                    <i class="fas fa-music fs-5 text-center mt-1 mb-2"></i>
+                                    <span class="fw-bold">Sound</span>
+                                </div>
+
+                                <div class="form-check form-switch d-flex flex-column justify-content-between justify-content-xl-center align-items-end">
+                                    <input class="form-check-input mb-2"
+                                           type="checkbox"
+                                           id="flexSwitchCheckChecked"
+                                           checked />
+                                    <label class="form-check-label fw-bold"
+                                           for="flexSwitchCheckChecked">
+                                        On
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-xl-3">
+                            <div class="p-3 alert-secondary rounded-3 d-flex justify-content-between justify-content-xl-center">
+                                <div class="d-flex flex-column">
+                                    <i class="fas fa-lightbulb fs-5 text-center mt-1 mb-2"></i>
+                                    <span class="fw-bold">Light</span>
+                                </div>
+
+                                <div class="form-check form-switch d-flex flex-column justify-content-between justify-content-xl-center align-items-end">
+                                    <input class="form-check-input mb-2"
+                                           type="checkbox"
+                                           id="flexSwitchCheckChecked"
+                                           checked />
+                                    <label class="form-check-label fw-bold"
+                                           for="flexSwitchCheckChecked">
+                                        On
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/dashboard.js"></script>
+}
