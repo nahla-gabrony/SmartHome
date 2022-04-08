@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SmartHome.Models
 {
-    public class Users_Logs
+    public class UserHome_Logs
     {
         public int Id { get; set; }
         public DateTime LogDateTime { get; set; }

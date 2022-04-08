@@ -50,13 +50,17 @@
             </a>
         </li>
         <li>
-            <a asp-controller="Home" asp-action="DashBoard" class="d-flex align-items-center py-3">
+            <a asp-controller="Account" asp-action="SignIn" class="d-flex align-items-center py-3">
                 <i class="far fa-users text-center fs-4 text-white"></i>
-                <span class="text-white fs-6 item-title">Test Dashboard</span>
+                <span class="text-white fs-6 item-title">Sign In</span>
             </a>
         </li>
         <li class="position-absolute bottom-0 log-out">
-            <a href="#" class="d-flex align-items-center py-3">
+            <a asp-controller="Account" asp-action="Logout" class="d-flex align-items-center py-3">
+                <i class="fas fa-unlock-alt ps-4 fs-4 text-white"></i>
+                <span class="text-white fs-6 item-title">Forget Password</span>
+            </a>
+            <a asp-controller="Account" asp-action="Logout" class="d-flex align-items-center py-3">
                 <i class="far fa-sign-out-alt ps-4 fs-4 text-white"></i>
                 <span class="text-white fs-6 item-title">Log out</span>
             </a>
@@ -65,8 +69,9 @@
 </aside>
 
 
-    <main class="position-relative main-section pb-3">
-        <nav class="d-flex justify-content-end justify-content-sm-between align-items-center position-fixed">
+<main class="position-relative main-section">
+    <partial name="_login" />
+    @*<nav class="d-flex justify-content-end justify-content-sm-between align-items-center position-fixed">
             <div id="sidebar-button"
                  class="text-end rounded-pill p-3 text-white sidebar-button">
                 <i class="fas fa-bars fs-4 fw-bold"></i>
@@ -81,9 +86,9 @@
                     <i class="fas fa-chevron-down fs-6 arrow-down"></i>
                 </div>
             </div>
-        </nav>
-        @RenderBody()
-    </main>
+        </nav>*@
+    @RenderBody()
+</main>
 
 
     <footer class="text-center text-white">
@@ -101,7 +106,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
-    <script src="~/js/site.js" ></script>
+  @*  <script src="~/js/site.js" ></script>*@
     @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("JsonJs", required: false)
 </body>
 </html>

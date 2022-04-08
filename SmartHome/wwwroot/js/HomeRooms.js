@@ -4,30 +4,17 @@ const sidebarBtn = document.querySelector("#sidebar-button");
 
 sidebarBtn.addEventListener("click", () => {
     sidebar.classList.toggle("active");
-})
-/* --------------------------------------------------Change the weather background----------------------------*/
-// 
-const currentTime = new Date().getHours();
-const weatherContainer = document.querySelector(".weather-container");
-if(weatherContainer !=null){
-if (currentTime >= 6 && currentTime <= 19) {
-	weatherContainer.classList.remove("night");
-} else {
-	weatherContainer.classList.add("night");
-}
-}
-
-/* -------------------------------------  Show Image after Select it ---------------------------------------*/
-const formImage = document.getElementById("form-image");
-const imageURL = document.getElementById("image-url");
-
-if(imageURL!== null){
-imageURL.addEventListener("change", (event) => {
-    formImage.src = URL.createObjectURL(event.target.files[0]);
-    formImage.style.visibility = "visible";
 });
-}
-
+/*------------------------------------ change the dropdown List Value--------------------------*/
+const links = document.querySelectorAll(".dropdown-menu li a");
+const element = document.querySelector(".dropdown-toggle");
+links.forEach(link => {
+    link.addEventListener("click", () => {
+        selectText = link.querySelector("span").innerHTML;
+        selectIcon = link.querySelector('i').classList;
+        element.innerHTML = `<i class="${selectIcon}"> </i> <span class="d-none d-md-flex">${selectText}</span>`;
+    });
+});
 /*------------------------------------ change the page content after select from menu--------------------------*/
 const selectMenu = document.getElementById("house-menu");
 const buttonsMenu = document.querySelectorAll(".house-icons a");
@@ -190,4 +177,4 @@ houseParts.forEach(housePart => {
 //    createLightSlider();
 //    updateLightSlider();
 //  }
-//});
+});

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartHome.Data;
 
 namespace SmartHome.Migrations
 {
     [DbContext(typeof(SmartHomeContext))]
-    partial class SmartHomeContextModelSnapshot : ModelSnapshot
+    [Migration("20220408175424_updatedUserLogName")]
+    partial class updatedUserLogName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -845,7 +847,22 @@ namespace SmartHome.Migrations
                     b.ToTable("Systems_Status");
                 });
 
-            modelBuilder.Entity("SmartHome.Models.UserHome_Logs", b =>
+            modelBuilder.Entity("SmartHome.Models.UserType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("UserTypeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users_Types");
+                });
+
+            modelBuilder.Entity("SmartHome.Models.User_Logs", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -865,22 +882,7 @@ namespace SmartHome.Migrations
 
                     b.HasIndex("HomeUserId");
 
-                    b.ToTable("UserHome_Logs");
-                });
-
-            modelBuilder.Entity("SmartHome.Models.UserType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("UserTypeName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users_Types");
+                    b.ToTable("User_Logs");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -978,7 +980,7 @@ namespace SmartHome.Migrations
                     b.Navigation("HomeSystem");
                 });
 
-            modelBuilder.Entity("SmartHome.Models.UserHome_Logs", b =>
+            modelBuilder.Entity("SmartHome.Models.User_Logs", b =>
                 {
                     b.HasOne("SmartHome.Models.HomeUser", "HomeUser")
                         .WithMany("UserLogs")

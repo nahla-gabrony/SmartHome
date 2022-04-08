@@ -1,0 +1,23 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+@*@if (_signInManager.IsSignedIn(User))
+{*@
+    <nav class="d-flex justify-content-end justify-content-sm-between align-items-center position-fixed">
+        <div id="sidebar-button"
+             class="text-end rounded-pill p-3 text-white sidebar-button">
+            <i class="fas fa-bars fs-4 fw-bold"></i>
+        </div>
+        <div class="d-flex align-items-center pe-3 profile-controller">
+            <i class="far fa-bell fs-4 pe-4 admin-icon"></i>
+            
+               @* <img src="~/@ViewData["UserImage"]" class="member-img rounded-circle" />*@
+                <img src="~/images/profile/2.png" class="member-img rounded-circle" />
+                <span class="d-none d-sm-inline fs-6 fw-bold m-1 admin-name">
+                 @*   @ViewData["UserName"]*@ Nahla Ahmed
+                </span>
+     
+        
+            
+        </div>
+    </nav>
+@*}*@
+ 

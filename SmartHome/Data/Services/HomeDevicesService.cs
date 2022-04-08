@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartHome.Data.HelperFunction;
-using SmartHome.Data.Repository;
 using SmartHome.Data.ViewModels.Home;
 using SmartHome.Models;
 using System;
@@ -12,32 +11,32 @@ using System.Threading.Tasks;
 
 namespace SmartHome.Data.Services
 {
-    public class HomeSystemsServices
+    public class HomeDevicesService
     {
         string connectionString;
-        public HomeSystemsServices(string connectionString)
+        public HomeDevicesService(string connectionString)
         {
              this.connectionString = connectionString;
         }
 
-        public List<Systems_Status> GetHomeSystems()  
+        public List<Devices_Status> GetDevicesData()  
         {
-            List<Systems_Status> HomeSystems = new List<Systems_Status>();
-            Systems_Status HomeSystemsdata;
+            List<Devices_Status> Device = new List<Devices_Status>();
+            Devices_Status DevicesData;
 
-            var data = GetData.GetDataFromDb(connectionString, "SpGetHomeSystemData");
+            var data = GetData.GetDataFromDb(connectionString, "SpGetHomeDevicesData");
             foreach (DataRow row in data.Rows)
             {
-                HomeSystemsdata = new Systems_Status
+                DevicesData = new Devices_Status
                 {
                     Id =  Convert.ToInt32(row["Id"]) ,
                     Status =  Convert.ToInt32(row["Status"]) ,
-                    SystemId =  Convert.ToInt32(row["SystemId"]) ,
+                    DeviceId =  Convert.ToInt32(row["DeviceId"]) ,
                 };
-                HomeSystems.Add(HomeSystemsdata);
+                Device.Add(DevicesData);
             }
 
-            return HomeSystems;
+            return Device;
         }
     }
 }

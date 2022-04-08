@@ -10,13 +10,15 @@ namespace SmartHome.Data.Hubs
 {
     public class DashboardHub : Hub
     {
-        HomeSystemsServices _homeSystemsServices;
-        UserHomeServices _userHomeServices;
+        HomeSystemsService _homeSystemsServices;
+        UserHomeService _userHomeServices;
+        HomeDevicesService _homeDevicesService;
         public DashboardHub(IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
-            _homeSystemsServices = new HomeSystemsServices(connectionString);
-            _userHomeServices = new UserHomeServices(connectionString);
+            _homeSystemsServices = new HomeSystemsService(connectionString);
+            _userHomeServices = new UserHomeService(connectionString);
+            _homeDevicesService = new HomeDevicesService(connectionString);
         }
 
         public async Task SendSystemsData() 
@@ -29,6 +31,12 @@ namespace SmartHome.Data.Hubs
         {
             var UserData = _userHomeServices.GetUserData();
             await Clients.All.SendAsync("ReceivedUserData", UserData);
+        }
+
+        public async Task SendDevicesData()
+        {
+            var DevicesData = _homeDevicesService.GetDevicesData();
+            await Clients.All.SendAsync("ReceivedDevicesData", DevicesData);
         }
     }
 }

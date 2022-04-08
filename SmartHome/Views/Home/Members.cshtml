@@ -6,6 +6,16 @@
     <div class="container position-relative px-3 main-container">
         <div class="row mb-3">
             <div class="col-12">
+                <div class="mb-3 d-flex justify-content-between">
+                    <a asp-controller="Account" asp-action="SignUp" class="btn  btn-outline-main" value="Add New User"> 
+                        <span class="pe-2">Add User</span> 
+                         <i class="fas fa-user-plus main-color"></i>
+                    </a>
+                    <a asp-controller="Account" asp-action="UserManager" class="btn btn-outline-main" value="Add New User">
+                        <span class="pe-2">Manage Users</span>
+                        <i class="fas fa-users-cog fs-5 main-color"></i>
+                    </a>
+                </div>
                 <div class="member-container rounded-3 mb-2 p-4 bg-white">
                     <h6 class="box-title fw-bold">Members</h6>
                     <div class="table-responsive">

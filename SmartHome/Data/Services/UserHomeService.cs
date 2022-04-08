@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SmartHome.Data.Repository;
 using SmartHome.Data.ViewModels.Home;
 using SmartHome.Models;
 using System;
@@ -12,25 +11,25 @@ using System.Threading.Tasks;
 
 namespace SmartHome.Data.Services
 {
-    public class UserHomeServices 
+    public class UserHomeService 
     {
      
         string connectionString;
-        public UserHomeServices(string connectionString)
+        public UserHomeService(string connectionString)
         {
             this.connectionString = connectionString;
         }
 
         public List<HomeUser> GetUserData()
         {
-            List<Users_Logs> UsersLogs = new List<Users_Logs>();
-            Users_Logs UsersLogdata;
+            List<UserHome_Logs> UsersLogs = new List<UserHome_Logs>();
+            UserHome_Logs UsersLogdata;
 
-            var data = GetData.GetDataFromDb(connectionString,"SpGetUsers");
+            var data = GetData.GetDataFromDb(connectionString, "SpGetUsersData");
 
             foreach (DataRow row in data.Rows)
             {
-                UsersLogdata = new Users_Logs
+                UsersLogdata = new UserHome_Logs
                 {
                     Id = Convert.ToInt32(row["Id"]),
                     HomeUserId = Convert.ToInt32(row["HomeUserId"]),

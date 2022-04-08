@@ -1,0 +1,42 @@
+﻿@model SignInViewModel
+@{
+    ViewData["Title"] = "Sign In";
+}
+
+<section class="sign-section ">
+    <div class="d-flex justify-content-center align-items-center container">
+
+        <div class="row">
+            <div class="col-10 offset-1  col-lg-9 offset-lg-1 col-xl-8 offset-xl-2 ">
+
+                <div class="row sign-container text-center text-white">
+                    <div class="d-none d-md-flex col-md-5 px-0 ">
+                        <div class="info d-flex flex-column">
+                            <h2 class="pt-4 py-4 fw-bold">Welcome To Your Smart Home</h2>
+                            <img src="~/images/background/form.png" class="w-100">
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-7 pb-5 ">
+                        <h2 class="col-12 pt-5 pb-4 fw-bold">Sign In</h2>
+                        <form asp-action="SignIn" class="row g-5">
+                            <div class="col-12">
+                                <input asp-for="Email" class="input-field w-75 p-2 text-white" placeholder="Email" required />
+                            </div>
+                            <div class="col-12">
+                                <input asp-for="Password" type="password" class="input-field w-75 p-2 text-white"  placeholder="Password" required />
+                            </div>
+                            <div class="col-12 ">
+                                <input type="submit" class="submit-btn text-white  fs-5" value="Sign In">
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

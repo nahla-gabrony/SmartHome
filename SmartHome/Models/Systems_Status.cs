@@ -10,6 +10,7 @@ namespace SmartHome.Models
     {
         public int Id { get; set; }
         public int Status { get; set; }
+  
 
         //Relationship
         public int SystemId { get; set; }
