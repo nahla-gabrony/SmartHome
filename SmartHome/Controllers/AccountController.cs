@@ -42,24 +42,7 @@ namespace SmartHome.Controllers
             }
             return View();
         }
-        [HttpGet("confirm-email")]
-        public async Task<IActionResult> ConfirmEmail(string uid, string token, string email)
-        {
-            ConfirmEmailViewModel model = new ConfirmEmailViewModel
-            {
-                Email = email
-            };
-            if (!string.IsNullOrEmpty(uid) && !string.IsNullOrEmpty(token))
-            {
-                token = token.Replace(" ", "+");
-                var result = await _accountService.ConfirmEmail(uid, token);
-                if (result.Succeeded)
-                {
-                    model.IsVerified = true;
-                }
-            }
-            return View(model);
-        }
+ 
         public IActionResult SignIn()
         {
             return View();
@@ -88,6 +71,26 @@ namespace SmartHome.Controllers
             }
             return View(model);
         }
+
+        [HttpGet("confirm-email")]
+        public async Task<IActionResult> ConfirmEmail(string uid, string token, string email)
+        {
+            ConfirmEmailViewModel model = new ConfirmEmailViewModel
+            {
+                Email = email
+            };
+            if (!string.IsNullOrEmpty(uid) && !string.IsNullOrEmpty(token))
+            {
+                token = token.Replace(" ", "+");
+                var result = await _accountService.ConfirmEmail(uid, token);
+                if (result.Succeeded)
+                {
+                    model.IsVerified = true;
+                }
+            }
+            return View(model);
+        }
+
         [HttpPost("confirm-email")]
         public async Task<IActionResult> ConfirmEmail(ConfirmEmailViewModel model)
         {
@@ -106,6 +109,31 @@ namespace SmartHome.Controllers
             else
             {
                 ModelState.AddModelError("", "There is somthing wrong");
+            }
+            return View(model);
+        }
+        [HttpGet("Change-Password")]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost("Change-Password")]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _accountService.ChangeUserPassword(model);
+                if (result.Succeeded)
+                {
+                    ModelState.Clear();
+                    model.IsSuccess = true;
+                    return View(model);
+                }
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
             }
             return View(model);
         }

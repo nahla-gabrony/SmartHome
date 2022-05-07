@@ -1,0 +1,70 @@
+﻿@model IEnumerable<HomeUsersHistoryViewModel>
+@{
+    ViewData["Title"] = "Members";
+}
+
+<section>
+    <div class="container position-relative px-3 main-container">
+        <div class="row mb-3">
+            <div class="col-12">
+                <div class="mb-3 d-flex justify-content-between">
+                    <a asp-controller="Account" asp-action="SignUp" class="btn  btn-outline-main" value="Add New User"> 
+                        <span class="pe-2">Add User</span> 
+                         <i class="fas fa-user-plus main-color"></i>
+                    </a>
+                    <a asp-controller="Member" asp-action="ManageUsers" class="btn btn-outline-main" value="Add New User">
+                        <span class="pe-2">Manage Users</span>
+                        <i class="fas fa-users-cog fs-5 main-color"></i>
+                    </a>
+                </div>
+                <div class="member-container rounded-3 mb-2 p-4 bg-white">
+                    <h6 class="box-title fw-bold">Home History</h6>
+                    <div class="table-responsive">
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Member Name</th>
+                                    <th>Status</th>
+                                    <th>Current Status Date</th>
+                                    <th>Current Status Time</th>
+                                    <th>Last Entring Date</th>
+                                    <th>Last Entring Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var user in Model)
+                                {
+                                    <tr class="alert-secondary">
+                                        <td class="p-2">
+                                            <img src="~/@user.UserImageURL" class="member-img rounded-circle" alt="" />
+                                        </td>
+                                        <td>
+                                            <span>@user.Name</span>
+                                        </td>
+                                        <td class="status">
+                                            <span class="badge fs-6 @((user.Status == true) ? "bg-success" : "bg-danger")">@((user.Status == true) ? "In Home" : "Out Home")</span>
+                                        </td>
+                                        <td>
+                                            <span>@user.CurrentStatusDateTime.ToLongDateString()</span>
+                                        </td>
+                                        <td>
+                                            <span>@user.CurrentStatusDateTime.ToLongTimeString()</span>
+                                        </td>
+                                        <td>
+                                            <span>@user.LastEntringDateTime.ToLongDateString()</span>
+                                        </td>
+                                        <td>
+                                            <span>@user.LastEntringDateTime.ToLongTimeString()</span>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

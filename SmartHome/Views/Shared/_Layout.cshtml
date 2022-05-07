@@ -20,7 +20,9 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
           crossorigin="anonymous">
     <!-- Style -->
+    @await RenderSectionAsync("CssStyle", required: false)
     <link rel="stylesheet" href="~/css/site.css">
+
     <title>@ViewData["Title"] - Smart Home</title>
 </head>
 <body>
@@ -32,33 +34,39 @@
     </div>
     <ul class="p-0 mt-2 sidebar-links">
         <li class="position-relative">
-            <a asp-controller="Home" asp-action="Index" class="d-flex align-items-center py-3 active">
+            <a id="index" asp-controller="Home" asp-action="Index" class="btn-active d-flex align-items-center py-3 active">
                 <i class="far fa-tachometer-alt text-center fs-4 text-white"></i>
                 <span class="text-white fs-6 item-title">Dashboard</span>
             </a>
         </li>
         <li>
-            <a asp-controller="Home" asp-action="HomeRooms" class="d-flex align-items-center py-3">
+            <a id="HomeRooms" asp-controller="Home" asp-action="HomeRooms" class="btn-active d-flex align-items-center py-3">
                 <i class="far fa-home text-center fs-4 text-white"></i>
                 <span class="text-white fs-6 item-title">Home Rooms</span>
             </a>
         </li>
         <li>
-            <a asp-controller="Home" asp-action="Members" class="d-flex align-items-center py-3">
+            <a id="Members" asp-controller="Member" asp-action="Members" class="btn-active d-flex align-items-center py-3">
                 <i class="far fa-users text-center fs-4 text-white"></i>
                 <span class="text-white fs-6 item-title">Members</span>
             </a>
         </li>
         <li>
-            <a asp-controller="Account" asp-action="SignIn" class="d-flex align-items-center py-3">
+            <a asp-controller="Account" asp-action="SignIn" class="btn-active d-flex align-items-center py-3">
                 <i class="far fa-users text-center fs-4 text-white"></i>
                 <span class="text-white fs-6 item-title">Sign In</span>
             </a>
+        </li> 
+        <li>
+            <a id="History" asp-controller="DeviceHistory" asp-action="DevicesHistory" asp-route-id="1" class="btn-active d-flex align-items-center py-3">
+                <i class="fas fa-cog text-center fs-4 text-white"></i>
+                <span class="text-white fs-6 item-title">History</span>
+            </a>
         </li>
         <li class="position-absolute bottom-0 log-out">
-            <a asp-controller="Account" asp-action="Logout" class="d-flex align-items-center py-3">
-                <i class="fas fa-unlock-alt ps-4 fs-4 text-white"></i>
-                <span class="text-white fs-6 item-title">Forget Password</span>
+            <a asp-controller="Account" asp-action="ChangePassword" class="d-flex align-items-center py-3">
+                <i class="fas fa-user-circle ps-4 fs-4 text-white"></i>
+                <span class="text-white fs-6 item-title">Profile Edit</span>
             </a>
             <a asp-controller="Account" asp-action="Logout" class="d-flex align-items-center py-3">
                 <i class="far fa-sign-out-alt ps-4 fs-4 text-white"></i>
@@ -71,29 +79,13 @@
 
 <main class="position-relative main-section">
     <partial name="_login" />
-    @*<nav class="d-flex justify-content-end justify-content-sm-between align-items-center position-fixed">
-            <div id="sidebar-button"
-                 class="text-end rounded-pill p-3 text-white sidebar-button">
-                <i class="fas fa-bars fs-4 fw-bold"></i>
-            </div>
-            <div class="d-flex align-items-center pe-3 profile-controller">
-                <i class="far fa-bell fs-4 pe-4 admin-icon"></i>
-                <div class="profile-details">
-                    <img src="~/images/profile/1.png" class="member-img rounded-circle" />
-                    <span class="d-none d-sm-inline fs-6 fw-bold m-1 admin-name">
-                        Nahla Ahmed
-                    </span>
-                    <i class="fas fa-chevron-down fs-6 arrow-down"></i>
-                </div>
-            </div>
-        </nav>*@
     @RenderBody()
 </main>
 
 
     <footer class="text-center text-white">
         <div class="text-center p-3">
-            &copy; 2021 Copyright Smart Home
+            &copy; 2022 Copyright Smart Home
         </div>
     </footer>
     <!-- Jquery -->
@@ -106,7 +98,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
-  @*  <script src="~/js/site.js" ></script>*@
+   <script src="~/js/site.js" ></script>
     @await RenderSectionAsync("Scripts", required: false)
     @await RenderSectionAsync("JsonJs", required: false)
 </body>

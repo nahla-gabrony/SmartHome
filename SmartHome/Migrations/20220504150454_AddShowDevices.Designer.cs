@@ -10,8 +10,8 @@ using SmartHome.Data;
 namespace SmartHome.Migrations
 {
     [DbContext(typeof(SmartHomeContext))]
-    [Migration("20220408183237_updatedUserhomeLogs")]
-    partial class updatedUserhomeLogs
+    [Migration("20220504150454_AddShowDevices")]
+    partial class AddShowDevices
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -315,138 +315,162 @@ namespace SmartHome.Migrations
                         new
                         {
                             Id = 12,
-                            DeviceName = "TV",
-                            RoomId = 3
+                            DeviceName = "Door",
+                            RoomId = 2
                         },
                         new
                         {
                             Id = 13,
-                            DeviceName = "AC",
+                            DeviceName = "TV",
                             RoomId = 3
                         },
                         new
                         {
                             Id = 14,
-                            DeviceName = "Sound",
+                            DeviceName = "AC",
                             RoomId = 3
                         },
                         new
                         {
                             Id = 15,
-                            DeviceName = "Light",
+                            DeviceName = "Sound",
                             RoomId = 3
                         },
                         new
                         {
                             Id = 16,
-                            DeviceName = "TV",
-                            RoomId = 4
+                            DeviceName = "Light",
+                            RoomId = 3
                         },
                         new
                         {
                             Id = 17,
-                            DeviceName = "AC",
-                            RoomId = 4
+                            DeviceName = "Door",
+                            RoomId = 3
                         },
                         new
                         {
                             Id = 18,
-                            DeviceName = "Sound",
+                            DeviceName = "TV",
                             RoomId = 4
                         },
                         new
                         {
                             Id = 19,
-                            DeviceName = "Light",
+                            DeviceName = "AC",
                             RoomId = 4
                         },
                         new
                         {
                             Id = 20,
-                            DeviceName = "AC",
-                            RoomId = 5
+                            DeviceName = "Sound",
+                            RoomId = 4
                         },
                         new
                         {
                             Id = 21,
-                            DeviceName = "Sound",
-                            RoomId = 5
+                            DeviceName = "Light",
+                            RoomId = 4
                         },
                         new
                         {
                             Id = 22,
-                            DeviceName = "Light",
+                            DeviceName = "AC",
                             RoomId = 5
                         },
                         new
                         {
                             Id = 23,
+                            DeviceName = "Sound",
+                            RoomId = 5
+                        },
+                        new
+                        {
+                            Id = 24,
+                            DeviceName = "Light",
+                            RoomId = 5
+                        },
+                        new
+                        {
+                            Id = 25,
                             DeviceName = "Light",
                             RoomId = 6
                         },
                         new
                         {
-                            Id = 24,
+                            Id = 26,
+                            DeviceName = "Door",
+                            RoomId = 6
+                        },
+                        new
+                        {
+                            Id = 27,
                             DeviceName = "TV",
                             RoomId = 7
                         },
                         new
                         {
-                            Id = 25,
+                            Id = 28,
                             DeviceName = "AC",
                             RoomId = 7
                         },
                         new
                         {
-                            Id = 26,
+                            Id = 29,
                             DeviceName = "Sound",
                             RoomId = 7
                         },
                         new
                         {
-                            Id = 27,
+                            Id = 30,
                             DeviceName = "Light",
                             RoomId = 7
                         },
                         new
                         {
-                            Id = 28,
+                            Id = 31,
+                            DeviceName = "Door",
+                            RoomId = 7
+                        },
+                        new
+                        {
+                            Id = 32,
                             DeviceName = "Garage Security",
                             RoomId = 8
                         },
                         new
                         {
-                            Id = 29,
+                            Id = 33,
                             DeviceName = "Garage Door",
                             RoomId = 8
                         },
                         new
                         {
-                            Id = 30,
+                            Id = 34,
                             DeviceName = "Left Parking",
                             RoomId = 8
                         },
                         new
                         {
-                            Id = 31,
+                            Id = 35,
                             DeviceName = "Right Parking",
                             RoomId = 8
                         },
                         new
                         {
-                            Id = 32,
+                            Id = 36,
                             DeviceName = "Garage Light",
                             RoomId = 8
                         },
                         new
                         {
-                            Id = 33,
+                            Id = 37,
                             DeviceName = "Water Tank",
                             RoomId = 9
                         },
                         new
                         {
-                            Id = 34,
+                            Id = 38,
                             DeviceName = "Irrigation System",
                             RoomId = 9
                         });
@@ -702,32 +726,45 @@ namespace SmartHome.Migrations
                         new
                         {
                             Id = 33,
-                            DeviceId = 32,
+                            DeviceId = 33,
+                            ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 34,
+                            DeviceId = 34,
+                            ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 35,
+                            DeviceId = 35,
+                            ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 36,
+                            DeviceId = 36,
+                            ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 37,
+                            DeviceId = 37,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
                             Status = 50
                         },
                         new
                         {
-                            Id = 34,
-                            DeviceId = 32,
+                            Id = 38,
+                            DeviceId = 38,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
                             Status = 90
                         });
-                });
-
-            modelBuilder.Entity("SmartHome.Models.HomeSystem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("SystemName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Home_Systems");
                 });
 
             modelBuilder.Entity("SmartHome.Models.HomeUser", b =>
@@ -827,24 +864,29 @@ namespace SmartHome.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SmartHome.Models.Systems_Status", b =>
+            modelBuilder.Entity("SmartHome.Models.Show_Devices", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("DeviceId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("SystemId")
-                        .HasColumnType("int");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SystemId");
+                    b.HasIndex("DeviceId");
 
-                    b.ToTable("Systems_Status");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Show_Devices");
                 });
 
             modelBuilder.Entity("SmartHome.Models.UserHome_Logs", b =>
@@ -969,15 +1011,21 @@ namespace SmartHome.Migrations
                     b.Navigation("UserType");
                 });
 
-            modelBuilder.Entity("SmartHome.Models.Systems_Status", b =>
+            modelBuilder.Entity("SmartHome.Models.Show_Devices", b =>
                 {
-                    b.HasOne("SmartHome.Models.HomeSystem", "HomeSystem")
-                        .WithMany("SystemStatus")
-                        .HasForeignKey("SystemId")
+                    b.HasOne("SmartHome.Models.Device", "Device")
+                        .WithMany()
+                        .HasForeignKey("DeviceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("HomeSystem");
+                    b.HasOne("SmartHome.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Device");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SmartHome.Models.UserHome_Logs", b =>
@@ -994,11 +1042,6 @@ namespace SmartHome.Migrations
             modelBuilder.Entity("SmartHome.Models.Device", b =>
                 {
                     b.Navigation("DevicesStatus");
-                });
-
-            modelBuilder.Entity("SmartHome.Models.HomeSystem", b =>
-                {
-                    b.Navigation("SystemStatus");
                 });
 
             modelBuilder.Entity("SmartHome.Models.HomeUser", b =>

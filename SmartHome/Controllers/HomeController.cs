@@ -15,31 +15,38 @@ namespace SmartHome.Controllers
     public class HomeController : Controller
     {
         private readonly IDevicesService _devicesService;
+        private readonly IShowDevicesService _showDevicesService;
 
-        public HomeController(IDevicesService devicesService)
+        public HomeController(IDevicesService devicesService,
+                              IShowDevicesService showDevicesService)
         {
             _devicesService = devicesService;
+            _showDevicesService = showDevicesService;
         }
 
-        public IActionResult Index(string UserImageURL, string UserName)
+        [HttpGet]
+        public async Task<IActionResult> Index(string UserImageURL, string UserName)
         {
             ViewData["UserImage"] = UserImageURL;
             ViewData["UserName"] = UserName;
-            return View();
+            var Devices = await _showDevicesService.ShowDevices();
+            return View(Devices);
         }
 
-        public IActionResult Members()
+        [HttpPost]
+        public async Task<IActionResult> Index(List<Show_Devices> model)
         {
-            return View();
+            var Devices = await _showDevicesService.ShowDevices();
+            return View(Devices);
         }
+
+        [Route("HomeRooms")]
         public IActionResult HomeRooms()
         {
             return View();
         }
-        public IActionResult DashBoard()
-        {
-            return View();
-        }
+       
+
         // Json Function
         [HttpPost]
         public IActionResult SendData(string checkValue,int dataId)
@@ -55,5 +62,13 @@ namespace SmartHome.Controllers
  
             return Ok();
         }
+
+        [HttpPost]
+        public IActionResult SendInputData(int dataValue ,int dataId)
+        {
+            _devicesService.UpdateData(dataValue, dataId);
+            return Ok();
+        }
+
     }
 }

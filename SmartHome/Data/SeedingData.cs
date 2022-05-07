@@ -135,138 +135,162 @@ namespace SmartHome.Data
                 new Device()
                 {
                     Id = 12,
-                    DeviceName= "TV",
-                    RoomId = 3
+                    DeviceName= "Door",
+                    RoomId = 2
                 },
                 new Device()
                 {
                     Id = 13,
-                    DeviceName= "AC",
+                    DeviceName= "TV",
                     RoomId = 3
                 },
                 new Device()
                 {
                     Id = 14,
-                    DeviceName= "Sound",
+                    DeviceName= "AC",
                     RoomId = 3
                 },
                 new Device()
                 {
                     Id = 15,
-                    DeviceName= "Light",
+                    DeviceName= "Sound",
                     RoomId = 3
                 },
                 new Device()
                 {
                     Id = 16,
-                    DeviceName= "TV",
-                    RoomId = 4
+                    DeviceName= "Light",
+                    RoomId = 3
                 },
                 new Device()
                 {
                     Id = 17,
-                    DeviceName= "AC",
-                    RoomId = 4
+                    DeviceName= "Door",
+                    RoomId = 3
                 },
                 new Device()
                 {
                     Id = 18,
-                    DeviceName= "Sound",
+                    DeviceName= "TV",
                     RoomId = 4
                 },
                 new Device()
                 {
                     Id = 19,
-                    DeviceName= "Light",
+                    DeviceName= "AC",
                     RoomId = 4
                 },
                 new Device()
                 {
                     Id = 20,
-                    DeviceName= "AC",
-                    RoomId = 5
+                    DeviceName= "Sound",
+                    RoomId = 4
                 },
                 new Device()
                 {
                     Id = 21,
-                    DeviceName= "Sound",
-                    RoomId = 5
+                    DeviceName= "Light",
+                    RoomId = 4
                 },
                 new Device()
                 {
                     Id = 22,
-                    DeviceName= "Light",
+                    DeviceName= "AC",
                     RoomId = 5
                 },
                 new Device()
                 {
                     Id = 23,
+                    DeviceName= "Sound",
+                    RoomId = 5
+                },
+                new Device()
+                {
+                    Id = 24,
+                    DeviceName= "Light",
+                    RoomId = 5
+                },
+                new Device()
+                {
+                    Id = 25,
                     DeviceName= "Light",
                     RoomId = 6
                 },
                 new Device()
                 {
-                    Id = 24,
+                    Id = 26,
+                    DeviceName= "Door",
+                    RoomId = 6
+                },
+                new Device()
+                {
+                    Id = 27,
                     DeviceName= "TV",
                     RoomId = 7
                 },
                 new Device()
                 {
-                    Id = 25,
+                    Id = 28,
                     DeviceName= "AC",
                     RoomId = 7
                 },
                 new Device()
                 {
-                    Id = 26,
+                    Id = 29,
                     DeviceName= "Sound",
                     RoomId = 7
                 },
                 new Device()
                 {
-                    Id = 27,
+                    Id = 30,
                     DeviceName= "Light",
                     RoomId = 7
                 },
                 new Device()
                 {
-                    Id = 28,
+                    Id = 31,
+                    DeviceName= "Door",
+                    RoomId = 7
+                },
+                new Device()
+                {
+                    Id = 32,
                     DeviceName= "Garage Security",
                     RoomId = 8
                 },
                 new Device()
                 {
-                    Id = 29,
+                    Id = 33,
                     DeviceName= "Garage Door",
                     RoomId = 8
                 },
                 new Device()
                 {
-                    Id = 30,
+                    Id = 34,
                     DeviceName= "Left Parking",
                     RoomId = 8
                 },
                 new Device()
                 {
-                    Id = 31,
+                    Id = 35,
                     DeviceName= "Right Parking",
                     RoomId = 8
                 },
                 new Device()
                 {
-                    Id = 32,
+                    Id = 36,
                     DeviceName= "Garage Light",
                     RoomId = 8
                 },
                 new Device()
                 {
-                    Id = 33,
+                    Id = 37,
                     DeviceName= "Water Tank",
                     RoomId = 9
                 },
                 new Device()
                 {
-                    Id = 34,
+                    Id = 38,
                     DeviceName= "Irrigation System",
                     RoomId = 9
                 },
@@ -503,15 +527,43 @@ namespace SmartHome.Data
                 new Devices_Status()
                 {
                     Id = 33,
-                    Status = 50,
-                    DeviceId = 32,
+                    Status = 0,
+                    DeviceId = 33,
                     ModifyDateTime = new DateTime(2022,3,2,12,10,50)
                 },
                 new Devices_Status()
                 {
                     Id = 34,
+                    Status = 0,
+                    DeviceId = 34,
+                    ModifyDateTime = new DateTime(2022,3,2,12,10,50)
+                },
+                new Devices_Status()
+                {
+                    Id = 35,
+                    Status = 0,
+                    DeviceId = 35,
+                    ModifyDateTime = new DateTime(2022,3,2,12,10,50)
+                },
+                new Devices_Status()
+                {
+                    Id = 36,
+                    Status = 0,
+                    DeviceId = 36,
+                    ModifyDateTime = new DateTime(2022,3,2,12,10,50)
+                },
+                new Devices_Status()
+                {
+                    Id = 37,
+                    Status = 50,
+                    DeviceId = 37,
+                    ModifyDateTime = new DateTime(2022,3,2,12,10,50)
+                },
+                new Devices_Status()
+                {
+                    Id = 38,
                     Status = 90,
-                    DeviceId = 32,
+                    DeviceId = 38,
                     ModifyDateTime = new DateTime(2022,3,2,12,10,50)
                 },
             };

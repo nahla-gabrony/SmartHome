@@ -17,7 +17,7 @@ namespace SmartHome.Models
         public string UserImageURL { get; set; }
 
         //Relationship
-        public ICollection<UserHome_Logs> UserLogs { get; set; }
+        public ICollection<UserHome_Logs> UserHomeLogs { get; set; }
         //public string UserId { get; set; }
         //public ApplicationUser User { get; set; }
 

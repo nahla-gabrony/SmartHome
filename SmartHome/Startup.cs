@@ -31,7 +31,7 @@ namespace SmartHome
         {
             services.AddDbContext<SmartHomeContext>(options => options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<SmartHomeContext>().AddDefaultTokenProviders();
-        //    var connectionString = _configuration.GetConnectionString("DefaultConnection");
+
             // Add Session 
             services.AddSession(options => {
                 options.Cookie.IsEssential = true;
@@ -46,11 +46,12 @@ namespace SmartHome
 
             //Services
             services.AddScoped<IAccountService,AccountService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IDevicesService, DevicesService>();
+            services.AddScoped<IShowDevicesService, ShowDevicesService>();
 
             services.AddSingleton<DashboardHub>();
-         //   services.AddSingleton<SubscribeHomeSystemsTableDependency>();
             services.AddSingleton<SubscribeUsersTableDependency>();
             services.AddSingleton<SubscribeDevicesTableDependency>();
         }
@@ -83,7 +84,6 @@ namespace SmartHome
             });
 
             var connectionString = _configuration.GetConnectionString("DefaultConnection");
-           // app.UseSqlTableDependency<SubscribeHomeSystemsTableDependency>(connectionString);
             app.UseSqlTableDependency<SubscribeUsersTableDependency>(connectionString);
             app.UseSqlTableDependency<SubscribeDevicesTableDependency>(connectionString);
 

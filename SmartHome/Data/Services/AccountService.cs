@@ -17,18 +17,21 @@ namespace SmartHome.Data.Services
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IUserService _userService;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IConfiguration _configuration;
         private readonly IEmailService _emailService;
 
         public AccountService(UserManager<ApplicationUser> userManager,
                              SignInManager<ApplicationUser> signInManager,
+                             IUserService userService,
                              IWebHostEnvironment webHostEnvironment,
                              IConfiguration configuration,
                             IEmailService emailService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _userService = userService;
             _webHostEnvironment = webHostEnvironment;
             _configuration = configuration;
             _emailService = emailService;
@@ -74,7 +77,12 @@ namespace SmartHome.Data.Services
             var user = await _userManager.FindByIdAsync(uid);
             return await _userManager.ConfirmEmailAsync(user, token);
         }
-    
+        public async Task<IdentityResult> ChangeUserPassword(ChangePasswordViewModel model)
+        {
+            var userId = _userService.GetUserId();
+            var user = await _userManager.FindByIdAsync(userId);
+            return await _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+        }
         // Hellper Function
         private async Task AddCoverPhoto(SignUpViewModel model, ApplicationUser Item, string folderPath, string ExistPhoto = null)
         {

@@ -15,6 +15,7 @@ namespace SmartHome.Data.Services
         Task GenerateEmailConfirmationToken(ApplicationUser user);
         Task<ApplicationUser> GetUserByEmail(string email);
         Task<IdentityResult> ConfirmEmail(string uid, string token);
+        Task<IdentityResult> ChangeUserPassword(ChangePasswordViewModel model);
         Task SignOut();
     }
 }

@@ -1,4 +1,5 @@
-﻿using SmartHome.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using SmartHome.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,13 @@ namespace SmartHome.Data.Services
 
             await _context.Devices_Status.AddAsync(createItem);
             await _context.SaveChangesAsync();
+        }
+        public async Task<IEnumerable<Devices_Status>> GetHistory(int deviceId)
+        {
+           
+            var data = await _context.Devices_Status.Where(x=>x.DeviceId == deviceId).ToListAsync();
+           
+            return data;
         }
     }
 }

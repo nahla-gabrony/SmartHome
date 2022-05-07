@@ -1,10 +1,3 @@
-/* ------------------------------------------------------------sidebar----------------------------------------*/
-const sidebar = document.querySelector("#sidebar");
-const sidebarBtn = document.querySelector("#sidebar-button");
-
-sidebarBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("active");
-})
 /* --------------------------------------------------Change the weather background----------------------------*/
 const currentTime = new Date().getHours();
 const weatherContainer = document.querySelector(".weather-container");
@@ -15,4 +8,16 @@ if (currentTime >= 6 && currentTime <= 19) {
 	weatherContainer.classList.add("night");
 }
 }
+
+/* --------------------------------------------------Edit/Remove Devices to page----------------------------*/
+
+$("#edit-button").click(function () {
+	$(".devices-layer").addClass("clicked");
+});
+
+$("#close-button").click(function () {
+	$(".devices-layer").removeClass("clicked");
+})
+
+
 

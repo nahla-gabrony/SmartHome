@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<Show_Devices>
+
+@{
     ViewData["Title"] = "Home";
 }
 
@@ -29,10 +31,8 @@
                     <div class="col-12 col-md-6 col-lg-12">
                         <div class="weather-container position-relative rounded-3 p-4">
                             <div class="date-time row">
-                                <h6 class="col-10 box-title fw-bold fs-3">@DateTime.Today.ToLongDateString().Split(",")[0]</h6>
-                                <a href="#" class="col-1 pt-1">
-                                    <i class="history-icon fas fa-cog fs-3"></i>
-                                </a>
+                                <h6 class=" box-title fw-bold fs-3">@DateTime.Today.ToLongDateString().Split(",")[0]</h6>
+
                                 <span class="col-12 text-secondary date">
                                     @DateTime.Today.ToLongDateString().Split(",")[1],
                                     @DateTime.Today.ToLongDateString().Split(",")[2]
@@ -51,10 +51,7 @@
                     <div class="col-12 col-md-6 col-lg-12">
                         <div class="garden-container rounded-3 bg-white p-4">
                             <div class="date-time row">
-                                <h6 class="col-10 box-title fw-bold fs-6">Garden</h6>
-                                <a href="#" class="col-1">
-                                    <i class="history-icon fas fa-cog fs-3"></i>
-                                </a>
+                                <h6 class="box-title fw-bold fs-6">Garden</h6>
                             </div>
                             <div class="garden-content mt-4">
                                 <div id="WaterTank" class="d-flex fw-bold">
@@ -86,78 +83,141 @@
             <div class="col-12 col-md-8 col-lg-8 mb-4">
                 <div class="devices-container rounded-3 p-4 bg-white">
                     <div class="row g-2 g-md-4">
-                        <h6 class="col-12 box-title fw-bold">Main Devices</h6>
-
-                        <div class="col-12 col-sm-6 col-xl-3">
-                            <div class="p-3 alert-secondary rounded-3 d-flex justify-content-between justify-content-xl-center">
-                                <div class="d-flex flex-column">
-                                    <i class="fas fa-door-closed fs-5 text-center mt-1 mb-2"></i>
-                                    <span class="fw-bold text-center">Home Door</span>
-                                </div>
-                     
-                                <div id="homeDoor" class="form-check form-switch d-flex flex-column justify-content-between justify-content-xl-center align-items-end">
-
-                                </div>
-                            </div>
+                        <h6 class="col-11 box-title fw-bold">Main Devices</h6>
+                        <div class="col-1">
+                            <a id="edit-button" class="fontawesome-icon fs-4">
+                                <i class="fas fa-edit"></i>
+                            </a>
                         </div>
 
-                        <div class="col-12 col-sm-6 col-xl-3">
-                            <div class="p-3 alert-secondary rounded-3 d-flex justify-content-between justify-content-xl-center">
-                                <div class="d-flex flex-column">
-                                    <i class="fas fa-lightbulb fs-5 text-center mt-1 mb-2"></i>
-                                    <span class="fw-bold text-center">Outdoor Light</span>
-                                </div>
- 
-                                <div id="outdoorLight" class="form-check form-switch d-flex flex-column justify-content-between justify-content-xl-center align-items-end">
-      
-                                </div>
-                            </div>
-                        </div>
+                        @foreach (var device in Model)
+                        {
+                            @if (device.DeviceId == 2)
+                            {
+                                <div class="col-12 col-sm-6 col-xl-3">
+                                    <div class="p-3 alert-secondary rounded-3 d-flex justify-content-between justify-content-xl-center">
+                                        <div class="d-flex flex-column">
+                                            <i class="fas fa-door-closed fs-5 text-center mt-1 mb-2"></i>
+                                            <span class="fw-bold text-center">Home Door</span>
+                                        </div>
 
-                        <div class="col-12 col-sm-6 col-xl-3">
-                            <div class="p-3 alert-secondary rounded-3 d-flex justify-content-between justify-content-xl-center">
-                                <div class="d-flex flex-column">
-                                    <i class="fas fa-tv fs-5 text-center mt-1 mb-2"></i>
-                                    <span class="fw-bold text-center">Leaving TV</span>
+                                        <div id="homeDoor" class="form-check form-switch d-flex flex-column justify-content-between justify-content-xl-center align-items-end"> </div>
+                                    </div>
                                 </div>
+                            }
+                            @if (device.DeviceId == 5)
+                            {
+                                <div class="col-12 col-sm-6 col-xl-3">
+                                    <div class="p-3 alert-secondary rounded-3 d-flex justify-content-between justify-content-xl-center">
+                                        <div class="d-flex flex-column">
+                                            <i class="fas fa-lightbulb fs-5 text-center mt-1 mb-2"></i>
+                                            <span class="fw-bold text-center">Outdoor Light</span>
+                                        </div>
 
-                                <div class="form-check form-switch d-flex flex-column justify-content-between justify-content-xl-center align-items-end">
-                                    <input class="form-check-input mb-2"
-                                           type="checkbox"
-                                           id="flexSwitchCheckChecked"
-                                           checked />
-                                    <label class="form-check-label fw-bold"
-                                           for="flexSwitchCheckChecked">
-                                        On
-                                    </label>
+                                        <div id="outdoorLight" class="form-check form-switch d-flex flex-column justify-content-between justify-content-xl-center align-items-end"></div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            }@if (device.DeviceId == 18)
+                            {
+                                <div class="col-12 col-sm-6 col-xl-3">
+                                    <div class="p-3 alert-secondary rounded-3 d-flex justify-content-between justify-content-xl-center">
+                                        <div class="d-flex flex-column">
+                                            <i class="fas fa-tv fs-5 text-center mt-1 mb-2"></i>
+                                            <span class="fw-bold text-center">Leaving TV</span>
+                                        </div>
+                                        <div id="leavingTV" class="form-check form-switch d-flex flex-column justify-content-between justify-content-xl-center align-items-end"></div>
 
-                        <div class="col-12 col-sm-6 col-xl-3">
-                            <div class="p-3 alert-secondary rounded-3 d-flex justify-content-between justify-content-xl-center">
-                                <div class="d-flex flex-column">
-                                    <i class="fas fa-wifi fs-5 text-center mt-1 mb-2"></i>
-                                    <span class="fw-bold text-center">Leaving Wifi</span>
+                                    </div>
                                 </div>
+                            }@if (device.DeviceId == 20)
+                            {
+                                <div class="col-12 col-sm-6 col-xl-3  ">
+                                    <div class="p-3 alert-secondary rounded-3 d-flex justify-content-between justify-content-xl-center">
+                                        <div class="d-flex flex-column">
+                                            <i class="fas fa-music fs-5 text-center mt-1 mb-2"></i>
+                                            <span class="fw-bold text-center">Leaving Sound</span>
+                                        </div>
+                                        <div id="leavingSound" class="form-check form-switch d-flex flex-column justify-content-between justify-content-xl-center align-items-end">    </div>
 
-                                <div class="form-check form-switch d-flex flex-column justify-content-between justify-content-xl-center align-items-end">
-                                    <input class="form-check-input mb-2"
-                                           type="checkbox"
-                                           id="flexSwitchCheckChecked"
-                                           checked />
-                                    <label class="form-check-label fw-bold"
-                                           for="flexSwitchCheckChecked">
-                                        On
-                                    </label>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            }
+                 
+                        }
+
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
+    <form method="post" class="devices-layer d-flex flex-column py-5 px-3">
+        <i class="fas fa-times" id="close-button"></i>
+        
+
+
+              <div>
+                <h6 class="fw-bold text-white">Main Home</h6>
+                <div class="container">
+                    <ul class="edit-device-box">
+                       
+                            <li>
+                                <input type="checkbox" id="checkboxOne" value="Outdoor Light">
+                                <label for="checkboxOne">Outdoor Light</label>
+                            </li>
+                        }
+                        
+                    <li>
+                        <input  type="checkbox" id="checkboxTwo" value="Home Door">
+                        <label for="checkboxTwo">Home Door</label>
+                    </li>
+                       
+                   
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-3">
+                <h6 class="fw-bold text-white">Bedroom One</h6>
+                <div class="container">
+                    <ul class="edit-device-box">
+                        <li>
+                            <input type="checkbox" id="checkboxthree" value="Bedroom One TV">
+                            <label for="checkboxthree">Bedroom One TV</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="checkboxfour" value="Bedroom One Door">
+                            <label for="checkboxfour">Bedroom One Door</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="checkboxfive" value="Bedroom One AC">
+                            <label for="checkboxfive">Bedroom One AC</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="checkboxsix" value="Bedroom One Light">
+                            <label for="checkboxsix">Bedroom One Light</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="checkboxseven" value="Bedroom One Sound">
+                            <label for="checkboxseven">Bedroom One Sound</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-3">
+                <h6 class="fw-bold text-white">Bedroom Two</h6>
+            </div>
+            <div class="mt-3">
+                <h6 class="fw-bold text-white">Office Room</h6>
+            </div>
+            <div class="mt-3">
+                <h6 class="fw-bold text-white">Leaving Room</h6>
+            </div>
+            <div class="mt-3">
+                <h6 class="fw-bold text-white">Dining Room</h6>
+            </div>
+      
+        <input type="submit" value="Ok" />
+    </form>
 </section>
 @section Scripts {
     <script src="~/js/index.js"></script>
@@ -169,28 +229,28 @@
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
+    $(document).ready(function () {
 
 
-            $(document).on('change', '.form-check-input', function () {
-              // var checkValue = $("input[type='checkbox']").val();
-                $.ajax({
-                    url: '@Url.Action("SendData", "Home")',
-                    type: "Post",
-                    data: {
-                        checkValue: $(this).is(':checked'),
-                        dataId: $(this).attr("data-id"),
-                    },
-                    success: function (data) {
-   
-                    },
-                    error: function (e) {
-                        alert('it broked');
-                    },
+        $(document).on('change', '.form-check-input', function () {
+            // var checkValue = $("input[type='checkbox']").val();
+            $.ajax({
+                url: '@Url.Action("SendData", "Home")',
+                type: "Post",
+                data: {
+                    checkValue: $(this).is(':checked'),
+                    dataId: $(this).attr("data-id"),
+                },
+                success: function (data) {
 
-                });
+                },
+                error: function (e) {
+                    alert('it broked');
+                },
 
             });
+
         });
+    });
     </script>
 }

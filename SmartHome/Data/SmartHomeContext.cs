@@ -25,7 +25,6 @@ namespace SmartHome.Data
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Device> Devices { get; set; }
         public DbSet<Devices_Status> Devices_Status { get; set; }
-        public DbSet<HomeSystem> Home_Systems { get; set; }
-        public DbSet<Systems_Status> Systems_Status { get; set; }
+        public DbSet<Show_Devices> Show_Devices { get; set; }
     }
 }
