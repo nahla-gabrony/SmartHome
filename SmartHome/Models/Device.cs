@@ -14,6 +14,7 @@ namespace SmartHome.Models
 
         //Relationship
         public ICollection<Devices_Status> DevicesStatus { get; set; }
+        public ICollection<Notification> Notification { get; set; }
 
         public int RoomId { get; set; }
         [ForeignKey("RoomId")]

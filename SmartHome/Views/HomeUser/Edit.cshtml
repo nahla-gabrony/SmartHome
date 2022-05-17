@@ -1,0 +1,79 @@
+﻿@model SignUpViewModel
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<section class="bg-section">
+    <div class="d-flex justify-content-center align-items-center container">
+
+        <div class="row">
+            <div class="col-10 offset-1  col-lg-9 offset-lg-1 col-xl-8 offset-xl-2 ">
+
+                <div class="signup-container text-center text-white mb-5 px-3">
+                    <h2 class="pt-4 pb-4 fw-bold">Add User</h2>
+                    <form method="post" enctype="multipart/form-data" asp-action="Edit" class="row g-3">
+                        <input asp-for="HomeUserId" type="hidden" />
+                        <input asp-for="ExistPhoto" type="hidden" />
+                        <input asp-for="Email" type="hidden" />
+                        <div class="col-12">
+                            <img class="img-details rounded-circle" id="form-image" src="~/@Model.ExistPhoto" />
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <input asp-for="CoverPhoto" id="image-url" class="w-75">
+                            <label for="image-url" class="btn btn-main">Choose a Cover Image</label>
+                            <span asp-validation-for="CoverPhoto" class="input-validation"></span>
+                        </div>
+                        <div class="col-12 col-md-6 mb-4">
+                            <select asp-for="UserType" id="userType" class="form-select w-100 p-2 text-white">
+                                <option disabled>Select User Type</option>
+                                <option selected value="1">Home User</option>
+                                <option value="2">Appliction/Home User</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-6 all-user d-none">
+                            <input asp-for="FirstName" class="input-field w-100 p-2 text-white" placeholder="First Name" />
+                            <span asp-validation-for="FirstName" class="input-validation"></span>
+                        </div>
+                        <div class="col-12 col-md-6 all-user d-none">
+                            <input asp-for="LastName" class="input-field w-100 p-2 text-white" placeholder="Last Name" />
+                            <span asp-validation-for="LastName" class="input-validation"></span>
+                        </div>
+                        <div class="col-12 all-user d-none">
+                            <input asp-for="Email" type="text" class="input-field w-100 p-2 text-white" placeholder="Email" disabled />
+                            <span asp-validation-for="Email" class="input-validation"></span>
+                        </div>
+                        <div class="col-12 col-md-6 all-user d-none">
+                            <input asp-for="Address" type="text" class="input-field w-100 p-2 text-white" placeholder="Address" />
+                            <span asp-validation-for="Address" class="input-validation"></span>
+                        </div>
+                        <div class="col-12 col-md-6 all-user d-none">
+                            <input asp-for="PhoneNumber" type="text" class="input-field w-100 p-2 text-white" placeholder="Phone Number" />
+                            <span asp-validation-for="PhoneNumber" class="input-validation"></span>
+                        </div>
+                        <div class="col-12 col-md-6 app-user d-none">
+                            <input asp-for="Password" type="password" class="input-field w-100 p-2 text-white" placeholder="Password" />
+                            <span asp-validation-for="Password" class="input-validation"></span>
+                        </div>
+                        <div class="col-12 col-md-6 app-user d-none">
+                            <input asp-for="ConfirmPassword" type="password" class="input-field w-100 p-2 text-white" placeholder="Confirm Password" />
+                            <span asp-validation-for="ConfirmPassword" class="input-validation"></span>
+                        </div>
+
+                        <div asp-validation-summary="ModelOnly"></div>
+
+                        <div class="col-12 justify-content-center all-user d-none">
+                            <input type="submit" class="submit-btn text-white fs-5 mb-3" value="Update">
+                        </div>
+
+                    </form>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <script src="~/js/SignUp.js"></script>
+}

@@ -44,6 +44,92 @@ namespace SmartHome.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "04ff9086-8225-424a-8620-ef1a58ae853c",
+                            ConcurrencyStamp = "83e57d03-6311-4247-acbf-7339051fed15",
+                            Name = "Dashboard Admin",
+                            NormalizedName = "DASHBOARD ADMIN"
+                        },
+                        new
+                        {
+                            Id = "60f49c54-5108-4bc1-963c-2534383a8401",
+                            ConcurrencyStamp = "02150d6d-25c1-42ee-831b-f14c9407bc11",
+                            Name = "Control Users",
+                            NormalizedName = "CONTROL USERS"
+                        },
+                        new
+                        {
+                            Id = "e3108378-4aa3-4bd0-87f7-854c67b723ec",
+                            ConcurrencyStamp = "f5107123-ba80-4c6f-b83a-45b8e054cd26",
+                            Name = "Main Systems",
+                            NormalizedName = "MAIN SYSTEMS"
+                        },
+                        new
+                        {
+                            Id = "2a602357-9e35-4ed2-bfbc-3b0f5e12711f",
+                            ConcurrencyStamp = "f7f96646-7fd2-43be-9303-e6dc5e3bbabf",
+                            Name = "Bedroom One",
+                            NormalizedName = "BEDROOM ONE"
+                        },
+                        new
+                        {
+                            Id = "864bf846-c768-490c-93be-e1fcdd4170dd",
+                            ConcurrencyStamp = "0a16edc0-69ac-4468-bdaa-85be632b5d1c",
+                            Name = "Bedroom Two",
+                            NormalizedName = "BEDROOM TWO"
+                        },
+                        new
+                        {
+                            Id = "133543c4-a29b-451a-b523-73e01dc6eabf",
+                            ConcurrencyStamp = "50be69ca-f7b8-4664-9160-0e0e976e5c54",
+                            Name = "Bedroom Three",
+                            NormalizedName = "BEDROOM THREE"
+                        },
+                        new
+                        {
+                            Id = "7c86824a-0b7c-48a6-894e-646c67fe8af3",
+                            ConcurrencyStamp = "9c2fc070-0ca5-436f-b74d-99d83fcc4154",
+                            Name = "Living Room",
+                            NormalizedName = "LIVING ROOM"
+                        },
+                        new
+                        {
+                            Id = "c7d70bff-ad21-4875-adc2-cb48eed8f9b2",
+                            ConcurrencyStamp = "cb71a660-136c-4e67-ad0c-6ca9db65b45a",
+                            Name = "Dining Room",
+                            NormalizedName = "DINING ROOM"
+                        },
+                        new
+                        {
+                            Id = "9edf75c5-f2cd-401e-8137-de7cd73f0348",
+                            ConcurrencyStamp = "5f453357-7dcd-4449-86b7-24a5f6a01121",
+                            Name = "Storage Room",
+                            NormalizedName = "STORAGE ROOM"
+                        },
+                        new
+                        {
+                            Id = "02f51724-f598-4c82-8735-79c890c60f2a",
+                            ConcurrencyStamp = "c2410240-662c-4146-a96f-2c753379cbca",
+                            Name = "Office Room",
+                            NormalizedName = "OFFICE ROOM"
+                        },
+                        new
+                        {
+                            Id = "2c824d27-18b2-4e5d-8d74-ae82ff7615ca",
+                            ConcurrencyStamp = "91ba3e9d-eb9d-4c80-9c14-253cd1f8c088",
+                            Name = "Garage",
+                            NormalizedName = "GARAGE"
+                        },
+                        new
+                        {
+                            Id = "5c3734dc-ec07-40ae-8da1-d0d134bd1cf5",
+                            ConcurrencyStamp = "7f22cca4-0246-4886-a775-d67392f59654",
+                            Name = "Garden",
+                            NormalizedName = "GARDEN"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -129,6 +215,178 @@ namespace SmartHome.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "84a7cf74-1232-41cb-af9c-952593cd7089",
+                            RoleId = "04ff9086-8225-424a-8620-ef1a58ae853c"
+                        },
+                        new
+                        {
+                            UserId = "84a7cf74-1232-41cb-af9c-952593cd7089",
+                            RoleId = "60f49c54-5108-4bc1-963c-2534383a8401"
+                        },
+                        new
+                        {
+                            UserId = "84a7cf74-1232-41cb-af9c-952593cd7089",
+                            RoleId = "e3108378-4aa3-4bd0-87f7-854c67b723ec"
+                        },
+                        new
+                        {
+                            UserId = "84a7cf74-1232-41cb-af9c-952593cd7089",
+                            RoleId = "2a602357-9e35-4ed2-bfbc-3b0f5e12711f"
+                        },
+                        new
+                        {
+                            UserId = "84a7cf74-1232-41cb-af9c-952593cd7089",
+                            RoleId = "864bf846-c768-490c-93be-e1fcdd4170dd"
+                        },
+                        new
+                        {
+                            UserId = "84a7cf74-1232-41cb-af9c-952593cd7089",
+                            RoleId = "133543c4-a29b-451a-b523-73e01dc6eabf"
+                        },
+                        new
+                        {
+                            UserId = "84a7cf74-1232-41cb-af9c-952593cd7089",
+                            RoleId = "7c86824a-0b7c-48a6-894e-646c67fe8af3"
+                        },
+                        new
+                        {
+                            UserId = "84a7cf74-1232-41cb-af9c-952593cd7089",
+                            RoleId = "c7d70bff-ad21-4875-adc2-cb48eed8f9b2"
+                        },
+                        new
+                        {
+                            UserId = "84a7cf74-1232-41cb-af9c-952593cd7089",
+                            RoleId = "9edf75c5-f2cd-401e-8137-de7cd73f0348"
+                        },
+                        new
+                        {
+                            UserId = "84a7cf74-1232-41cb-af9c-952593cd7089",
+                            RoleId = "02f51724-f598-4c82-8735-79c890c60f2a"
+                        },
+                        new
+                        {
+                            UserId = "84a7cf74-1232-41cb-af9c-952593cd7089",
+                            RoleId = "2c824d27-18b2-4e5d-8d74-ae82ff7615ca"
+                        },
+                        new
+                        {
+                            UserId = "84a7cf74-1232-41cb-af9c-952593cd7089",
+                            RoleId = "5c3734dc-ec07-40ae-8da1-d0d134bd1cf5"
+                        },
+                        new
+                        {
+                            UserId = "117368c9-da90-417b-815a-55a3891c9672",
+                            RoleId = "04ff9086-8225-424a-8620-ef1a58ae853c"
+                        },
+                        new
+                        {
+                            UserId = "117368c9-da90-417b-815a-55a3891c9672",
+                            RoleId = "60f49c54-5108-4bc1-963c-2534383a8401"
+                        },
+                        new
+                        {
+                            UserId = "117368c9-da90-417b-815a-55a3891c9672",
+                            RoleId = "e3108378-4aa3-4bd0-87f7-854c67b723ec"
+                        },
+                        new
+                        {
+                            UserId = "117368c9-da90-417b-815a-55a3891c9672",
+                            RoleId = "2a602357-9e35-4ed2-bfbc-3b0f5e12711f"
+                        },
+                        new
+                        {
+                            UserId = "117368c9-da90-417b-815a-55a3891c9672",
+                            RoleId = "864bf846-c768-490c-93be-e1fcdd4170dd"
+                        },
+                        new
+                        {
+                            UserId = "117368c9-da90-417b-815a-55a3891c9672",
+                            RoleId = "133543c4-a29b-451a-b523-73e01dc6eabf"
+                        },
+                        new
+                        {
+                            UserId = "117368c9-da90-417b-815a-55a3891c9672",
+                            RoleId = "7c86824a-0b7c-48a6-894e-646c67fe8af3"
+                        },
+                        new
+                        {
+                            UserId = "117368c9-da90-417b-815a-55a3891c9672",
+                            RoleId = "c7d70bff-ad21-4875-adc2-cb48eed8f9b2"
+                        },
+                        new
+                        {
+                            UserId = "117368c9-da90-417b-815a-55a3891c9672",
+                            RoleId = "9edf75c5-f2cd-401e-8137-de7cd73f0348"
+                        },
+                        new
+                        {
+                            UserId = "117368c9-da90-417b-815a-55a3891c9672",
+                            RoleId = "2c824d27-18b2-4e5d-8d74-ae82ff7615ca"
+                        },
+                        new
+                        {
+                            UserId = "117368c9-da90-417b-815a-55a3891c9672",
+                            RoleId = "5c3734dc-ec07-40ae-8da1-d0d134bd1cf5"
+                        },
+                        new
+                        {
+                            UserId = "4878fbf1-18ae-4b64-a34b-c60c0d825a9c",
+                            RoleId = "e3108378-4aa3-4bd0-87f7-854c67b723ec"
+                        },
+                        new
+                        {
+                            UserId = "4878fbf1-18ae-4b64-a34b-c60c0d825a9c",
+                            RoleId = "864bf846-c768-490c-93be-e1fcdd4170dd"
+                        },
+                        new
+                        {
+                            UserId = "4878fbf1-18ae-4b64-a34b-c60c0d825a9c",
+                            RoleId = "c7d70bff-ad21-4875-adc2-cb48eed8f9b2"
+                        },
+                        new
+                        {
+                            UserId = "984c0481-ae7e-4845-96d1-8da01f96f878",
+                            RoleId = "e3108378-4aa3-4bd0-87f7-854c67b723ec"
+                        },
+                        new
+                        {
+                            UserId = "984c0481-ae7e-4845-96d1-8da01f96f878",
+                            RoleId = "864bf846-c768-490c-93be-e1fcdd4170dd"
+                        },
+                        new
+                        {
+                            UserId = "984c0481-ae7e-4845-96d1-8da01f96f878",
+                            RoleId = "c7d70bff-ad21-4875-adc2-cb48eed8f9b2"
+                        },
+                        new
+                        {
+                            UserId = "a47e6b88-2629-4d08-b4e3-f44aa61b455d",
+                            RoleId = "e3108378-4aa3-4bd0-87f7-854c67b723ec"
+                        },
+                        new
+                        {
+                            UserId = "a47e6b88-2629-4d08-b4e3-f44aa61b455d",
+                            RoleId = "133543c4-a29b-451a-b523-73e01dc6eabf"
+                        },
+                        new
+                        {
+                            UserId = "a47e6b88-2629-4d08-b4e3-f44aa61b455d",
+                            RoleId = "c7d70bff-ad21-4875-adc2-cb48eed8f9b2"
+                        },
+                        new
+                        {
+                            UserId = "a47e6b88-2629-4d08-b4e3-f44aa61b455d",
+                            RoleId = "2c824d27-18b2-4e5d-8d74-ae82ff7615ca"
+                        },
+                        new
+                        {
+                            UserId = "a47e6b88-2629-4d08-b4e3-f44aa61b455d",
+                            RoleId = "5c3734dc-ec07-40ae-8da1-d0d134bd1cf5"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -222,6 +480,108 @@ namespace SmartHome.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "84a7cf74-1232-41cb-af9c-952593cd7089",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "90d625e3-e70e-4b3c-b9eb-7a03e83f2aaf",
+                            Email = "ali_ahmed@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Ali",
+                            LastName = "Ahmed",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ALI_AHMED@GMAIL.COM",
+                            NormalizedUserName = "ALI_AHMED@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJgHQKa8ILz/d4c2h9F0eBq1RCC6N/0q5FaMoWOsc/txaY64AhhH5y0yhdL5xphIJg==",
+                            PhoneNumber = "01017080058",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "f3935b08-af74-4712-985b-c9c10166bee7",
+                            TwoFactorEnabled = false,
+                            UserImageURL = "../images/profile/1.png",
+                            UserName = "Ali_Ahmed@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "117368c9-da90-417b-815a-55a3891c9672",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "c4cc5eec-38b5-464d-9a18-3479b40c5b21",
+                            Email = "mona_mohamed@yahoo.com",
+                            EmailConfirmed = true,
+                            FirstName = "Mona",
+                            LastName = "Mohamed",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "MONA_MOHAMED@YAHOO.COM",
+                            NormalizedUserName = "MONA_MOHAMED@YAHOO.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJJTCsMOPRgi8Zj+SKy1Cir3boKi0aoB8oWJaT5mQy9z/KWLgtZpc7dMXmF2zvphxg==",
+                            PhoneNumber = "01017180069",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "1fe3e1d7-c86e-4fe9-a383-6221f901fc19",
+                            TwoFactorEnabled = false,
+                            UserImageURL = "../images/profile/2.png",
+                            UserName = "mona_mohamed@yahoo.com"
+                        },
+                        new
+                        {
+                            Id = "4878fbf1-18ae-4b64-a34b-c60c0d825a9c",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "a0f0083e-6fb7-448a-8f65-9a60cb5b536d",
+                            Email = "mohamed_ali@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Mohamed",
+                            LastName = "Ali",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "MOHAMED_ALI@GMAIL.COM",
+                            NormalizedUserName = "MOHAMED_ALI@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFgVcFn3tdPSOO38kukRnUK0qLaYzh93Dyl8EJ9CCUzXuMwu+VjwpjS4I3YMyJuj2Q==",
+                            PhoneNumber = "01068289043",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "487f00d6-2009-43ad-91ce-7e8df8ac9d4e",
+                            TwoFactorEnabled = false,
+                            UserImageURL = "../images/profile/3.png",
+                            UserName = "mohamed_ali@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "984c0481-ae7e-4845-96d1-8da01f96f878",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "91cf969e-2358-48cb-a227-da7e2a86cb54",
+                            Email = "mai_ali@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Mai",
+                            LastName = "Ali",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "MAI_ALI@GMAIL.COM",
+                            NormalizedUserName = "MAI_ALI@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGgvDb8jSB93ClOHHQ+nC4l4Vc7kdeKs643TiqilX/2yTWYpvv3C+zJaqMFjGFzx2Q==",
+                            PhoneNumber = "01068289043",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "f640f386-03b0-4ce1-bb54-4f68b09f6a99",
+                            TwoFactorEnabled = false,
+                            UserImageURL = "../images/profile/4.png",
+                            UserName = "mai_ali@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "a47e6b88-2629-4d08-b4e3-f44aa61b455d",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "d4b12f6e-4348-41cc-a653-4a84c3114485",
+                            Email = "ahmed_ibrahim@yahoo.com",
+                            EmailConfirmed = true,
+                            FirstName = "Ahmed",
+                            LastName = "Ibrahim",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "AHMED_IBRAHIM@YAHOO.COM",
+                            NormalizedUserName = "AHMED_IBRAHIM@YAHOO.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFaA5ZLU4o1i+BuslzenuRFHtCn4fdCAMZ41yYPBewwup3fvCgwi7TTgzAppJSzT8w==",
+                            PhoneNumber = "01068289043",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "0231fbaa-70d9-4d7a-b349-085e0fb40260",
+                            TwoFactorEnabled = false,
+                            UserImageURL = "../images/profile/5.png",
+                            UserName = "ahmed_ibrahim@yahoo.com"
+                        });
                 });
 
             modelBuilder.Entity("SmartHome.Models.Device", b =>
@@ -253,7 +613,7 @@ namespace SmartHome.Migrations
                         new
                         {
                             Id = 2,
-                            DeviceName = "Open Door",
+                            DeviceName = "Home Door",
                             RoomId = 1
                         },
                         new
@@ -295,7 +655,7 @@ namespace SmartHome.Migrations
                         new
                         {
                             Id = 9,
-                            DeviceName = "AC",
+                            DeviceName = "Door",
                             RoomId = 2
                         },
                         new
@@ -313,7 +673,7 @@ namespace SmartHome.Migrations
                         new
                         {
                             Id = 12,
-                            DeviceName = "Door",
+                            DeviceName = "AC",
                             RoomId = 2
                         },
                         new
@@ -325,7 +685,7 @@ namespace SmartHome.Migrations
                         new
                         {
                             Id = 14,
-                            DeviceName = "AC",
+                            DeviceName = "Door",
                             RoomId = 3
                         },
                         new
@@ -343,7 +703,7 @@ namespace SmartHome.Migrations
                         new
                         {
                             Id = 17,
-                            DeviceName = "Door",
+                            DeviceName = "AC",
                             RoomId = 3
                         },
                         new
@@ -355,7 +715,7 @@ namespace SmartHome.Migrations
                         new
                         {
                             Id = 19,
-                            DeviceName = "AC",
+                            DeviceName = "Door",
                             RoomId = 4
                         },
                         new
@@ -373,104 +733,140 @@ namespace SmartHome.Migrations
                         new
                         {
                             Id = 22,
-                            DeviceName = "AC",
-                            RoomId = 5
+                            DeviceName = "Ac",
+                            RoomId = 4
                         },
                         new
                         {
                             Id = 23,
-                            DeviceName = "Sound",
+                            DeviceName = "TV",
                             RoomId = 5
                         },
                         new
                         {
                             Id = 24,
-                            DeviceName = "Light",
+                            DeviceName = "Door",
                             RoomId = 5
                         },
                         new
                         {
                             Id = 25,
-                            DeviceName = "Light",
-                            RoomId = 6
+                            DeviceName = "Sound",
+                            RoomId = 5
                         },
                         new
                         {
                             Id = 26,
-                            DeviceName = "Door",
-                            RoomId = 6
+                            DeviceName = "Light",
+                            RoomId = 5
                         },
                         new
                         {
                             Id = 27,
-                            DeviceName = "TV",
-                            RoomId = 7
+                            DeviceName = "AC",
+                            RoomId = 5
                         },
                         new
                         {
                             Id = 28,
-                            DeviceName = "AC",
-                            RoomId = 7
+                            DeviceName = "Sound",
+                            RoomId = 6
                         },
                         new
                         {
                             Id = 29,
-                            DeviceName = "Sound",
-                            RoomId = 7
+                            DeviceName = "Light",
+                            RoomId = 6
                         },
                         new
                         {
                             Id = 30,
-                            DeviceName = "Light",
-                            RoomId = 7
+                            DeviceName = "AC",
+                            RoomId = 6
                         },
                         new
                         {
                             Id = 31,
-                            DeviceName = "Door",
+                            DeviceName = "Light",
                             RoomId = 7
                         },
                         new
                         {
                             Id = 32,
-                            DeviceName = "Garage Security",
-                            RoomId = 8
+                            DeviceName = "Door",
+                            RoomId = 7
                         },
                         new
                         {
                             Id = 33,
-                            DeviceName = "Garage Door",
+                            DeviceName = "TV",
                             RoomId = 8
                         },
                         new
                         {
                             Id = 34,
-                            DeviceName = "Left Parking",
+                            DeviceName = "Door",
                             RoomId = 8
                         },
                         new
                         {
                             Id = 35,
-                            DeviceName = "Right Parking",
+                            DeviceName = "Sound",
                             RoomId = 8
                         },
                         new
                         {
                             Id = 36,
-                            DeviceName = "Garage Light",
+                            DeviceName = "Light",
                             RoomId = 8
                         },
                         new
                         {
                             Id = 37,
-                            DeviceName = "Water Tank",
-                            RoomId = 9
+                            DeviceName = "AC",
+                            RoomId = 8
                         },
                         new
                         {
                             Id = 38,
-                            DeviceName = "Irrigation System",
+                            DeviceName = "Garage Security",
                             RoomId = 9
+                        },
+                        new
+                        {
+                            Id = 39,
+                            DeviceName = "Left Parking",
+                            RoomId = 9
+                        },
+                        new
+                        {
+                            Id = 40,
+                            DeviceName = "Right Parking",
+                            RoomId = 9
+                        },
+                        new
+                        {
+                            Id = 41,
+                            DeviceName = "Garage Door",
+                            RoomId = 9
+                        },
+                        new
+                        {
+                            Id = 42,
+                            DeviceName = "Garage Light",
+                            RoomId = 9
+                        },
+                        new
+                        {
+                            Id = 43,
+                            DeviceName = "Water Tank",
+                            RoomId = 10
+                        },
+                        new
+                        {
+                            Id = 44,
+                            DeviceName = "Irrigation System",
+                            RoomId = 10
                         });
                 });
 
@@ -565,56 +961,56 @@ namespace SmartHome.Migrations
                             Id = 10,
                             DeviceId = 10,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 1
+                            Status = 50
                         },
                         new
                         {
                             Id = 11,
                             DeviceId = 11,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 0
+                            Status = 90
                         },
                         new
                         {
                             Id = 12,
                             DeviceId = 12,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 1
+                            Status = 22
                         },
                         new
                         {
                             Id = 13,
                             DeviceId = 13,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 1
+                            Status = 0
                         },
                         new
                         {
                             Id = 14,
                             DeviceId = 14,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 1
+                            Status = 0
                         },
                         new
                         {
                             Id = 15,
                             DeviceId = 15,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 1
+                            Status = 40
                         },
                         new
                         {
                             Id = 16,
                             DeviceId = 16,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 0
+                            Status = 50
                         },
                         new
                         {
                             Id = 17,
                             DeviceId = 17,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 0
+                            Status = 20
                         },
                         new
                         {
@@ -635,21 +1031,21 @@ namespace SmartHome.Migrations
                             Id = 20,
                             DeviceId = 20,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 1
+                            Status = 20
                         },
                         new
                         {
                             Id = 21,
                             DeviceId = 21,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 1
+                            Status = 25
                         },
                         new
                         {
                             Id = 22,
                             DeviceId = 22,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 0
+                            Status = 18
                         },
                         new
                         {
@@ -663,56 +1059,56 @@ namespace SmartHome.Migrations
                             Id = 24,
                             DeviceId = 24,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 1
+                            Status = 0
                         },
                         new
                         {
                             Id = 25,
                             DeviceId = 25,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 1
+                            Status = 70
                         },
                         new
                         {
                             Id = 26,
                             DeviceId = 26,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 0
+                            Status = 80
                         },
                         new
                         {
                             Id = 27,
                             DeviceId = 27,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 1
+                            Status = 25
                         },
                         new
                         {
                             Id = 28,
                             DeviceId = 28,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 0
+                            Status = 20
                         },
                         new
                         {
                             Id = 29,
                             DeviceId = 29,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 0
+                            Status = 90
                         },
                         new
                         {
                             Id = 30,
                             DeviceId = 30,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 0
+                            Status = 20
                         },
                         new
                         {
                             Id = 31,
                             DeviceId = 31,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 1
+                            Status = 0
                         },
                         new
                         {
@@ -740,26 +1136,68 @@ namespace SmartHome.Migrations
                             Id = 35,
                             DeviceId = 35,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 0
+                            Status = 10
                         },
                         new
                         {
                             Id = 36,
                             DeviceId = 36,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 0
+                            Status = 15
                         },
                         new
                         {
                             Id = 37,
                             DeviceId = 37,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
-                            Status = 50
+                            Status = 20
                         },
                         new
                         {
                             Id = 38,
                             DeviceId = 38,
+                            ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 39,
+                            DeviceId = 39,
+                            ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 40,
+                            DeviceId = 40,
+                            ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 41,
+                            DeviceId = 41,
+                            ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 42,
+                            DeviceId = 42,
+                            ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 43,
+                            DeviceId = 43,
+                            ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
+                            Status = 50
+                        },
+                        new
+                        {
+                            Id = 44,
+                            DeviceId = 44,
                             ModifyDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
                             Status = 90
                         });
@@ -790,14 +1228,229 @@ namespace SmartHome.Migrations
                     b.Property<string>("UserImageURL")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserTypeId")
+                    b.HasKey("Id");
+
+                    b.ToTable("HomeUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "In Home",
+                            Email = "ali_ahmed@gmail.com",
+                            FirstName = "Ali",
+                            LastName = "Ahmed",
+                            PhoneNumber = "01017080058",
+                            UserImageURL = "../images/profile/1.png"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "In Home",
+                            Email = "mona_mohamed@yahoo.com",
+                            FirstName = "Mona",
+                            LastName = "Mohamed",
+                            PhoneNumber = "01017180069",
+                            UserImageURL = "../images/profile/2.png"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "In Home",
+                            Email = "mohamed_ali@gmail.com",
+                            FirstName = "Mohamed",
+                            LastName = "Ali",
+                            PhoneNumber = "01017189052",
+                            UserImageURL = "../images/profile/3.png"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "In Home",
+                            Email = "mai_ali@gmail.com",
+                            FirstName = "Mai",
+                            LastName = "Ali",
+                            PhoneNumber = "01069189080",
+                            UserImageURL = "../images/profile/4.png"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "In Home",
+                            Email = "ahmed_ibrahim@yahoo.com",
+                            FirstName = "Ahmed",
+                            LastName = "Ibrahim",
+                            PhoneNumber = "01068289043",
+                            UserImageURL = "../images/profile/5.png"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "90 Ain-shams - Cairo,Egypt",
+                            Email = "marwa_saad@gmail.com",
+                            FirstName = "Marwa",
+                            LastName = "Saad",
+                            PhoneNumber = "01268468933",
+                            UserImageURL = "../images/profile/6.png"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Address = "50 Ain-shams - Cairo,Egypt",
+                            Email = "mona_Kamel@gmail.com",
+                            FirstName = "Nada",
+                            LastName = "Helmy",
+                            PhoneNumber = "01168237594",
+                            UserImageURL = "../images/profile/7.png"
+                        });
+                });
+
+            modelBuilder.Entity("SmartHome.Models.HomeUser_Status", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("HomeUserId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("StatusDateTime")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserTypeId");
+                    b.HasIndex("HomeUserId");
 
-                    b.ToTable("HomeUsers");
+                    b.ToTable("HomeUser_Status");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            HomeUserId = 1,
+                            Status = true,
+                            StatusDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            HomeUserId = 2,
+                            Status = true,
+                            StatusDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            HomeUserId = 3,
+                            Status = true,
+                            StatusDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            HomeUserId = 4,
+                            Status = false,
+                            StatusDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            HomeUserId = 5,
+                            Status = false,
+                            StatusDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            HomeUserId = 6,
+                            Status = false,
+                            StatusDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            HomeUserId = 7,
+                            Status = true,
+                            StatusDateTime = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
+            modelBuilder.Entity("SmartHome.Models.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("DeviceId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("NotificationBody")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("NotificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NotificationHeader")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeviceId");
+
+                    b.ToTable("Notification");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DeviceId = 1,
+                            IsRead = true,
+                            NotificationBody = "The House is Safe Now",
+                            NotificationDate = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
+                            NotificationHeader = "Home Security",
+                            Status = false
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DeviceId = 3,
+                            IsRead = true,
+                            NotificationBody = "There is no Fire in House",
+                            NotificationDate = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
+                            NotificationHeader = "Fire System",
+                            Status = false
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DeviceId = 4,
+                            IsRead = true,
+                            NotificationBody = "There is no Smoke in House",
+                            NotificationDate = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
+                            NotificationHeader = "Smoke System",
+                            Status = false
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DeviceId = 32,
+                            IsRead = true,
+                            NotificationBody = "The Garage is Safe Now",
+                            NotificationDate = new DateTime(2022, 3, 2, 12, 10, 50, 0, DateTimeKind.Unspecified),
+                            NotificationHeader = "Garage Security",
+                            Status = false
+                        });
                 });
 
             modelBuilder.Entity("SmartHome.Models.Room", b =>
@@ -833,96 +1486,38 @@ namespace SmartHome.Migrations
                         new
                         {
                             Id = 4,
-                            RoomName = "Leaving Room"
+                            RoomName = "Bedroom 3"
                         },
                         new
                         {
                             Id = 5,
-                            RoomName = "Dining Room"
+                            RoomName = "Leaving Room"
                         },
                         new
                         {
                             Id = 6,
-                            RoomName = "Storage Room"
+                            RoomName = "Dining Room"
                         },
                         new
                         {
                             Id = 7,
-                            RoomName = "Office Room"
+                            RoomName = "Storage Room"
                         },
                         new
                         {
                             Id = 8,
-                            RoomName = "Garage"
+                            RoomName = "Office Room"
                         },
                         new
                         {
                             Id = 9,
+                            RoomName = "Garage"
+                        },
+                        new
+                        {
+                            Id = 10,
                             RoomName = "Garden"
                         });
-                });
-
-            modelBuilder.Entity("SmartHome.Models.Show_Devices", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("DeviceId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DeviceId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Show_Devices");
-                });
-
-            modelBuilder.Entity("SmartHome.Models.UserHome_Logs", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("HomeUserId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("LogDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HomeUserId");
-
-                    b.ToTable("UserHome_Logs");
-                });
-
-            modelBuilder.Entity("SmartHome.Models.UserType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("UserTypeName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users_Types");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -998,38 +1593,10 @@ namespace SmartHome.Migrations
                     b.Navigation("Device");
                 });
 
-            modelBuilder.Entity("SmartHome.Models.HomeUser", b =>
-                {
-                    b.HasOne("SmartHome.Models.UserType", "UserType")
-                        .WithMany("HomeUsers")
-                        .HasForeignKey("UserTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserType");
-                });
-
-            modelBuilder.Entity("SmartHome.Models.Show_Devices", b =>
-                {
-                    b.HasOne("SmartHome.Models.Device", "Device")
-                        .WithMany()
-                        .HasForeignKey("DeviceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SmartHome.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Device");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("SmartHome.Models.UserHome_Logs", b =>
+            modelBuilder.Entity("SmartHome.Models.HomeUser_Status", b =>
                 {
                     b.HasOne("SmartHome.Models.HomeUser", "HomeUser")
-                        .WithMany("UserLogs")
+                        .WithMany("UserHomeLogs")
                         .HasForeignKey("HomeUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1037,24 +1604,32 @@ namespace SmartHome.Migrations
                     b.Navigation("HomeUser");
                 });
 
+            modelBuilder.Entity("SmartHome.Models.Notification", b =>
+                {
+                    b.HasOne("SmartHome.Models.Device", "Device")
+                        .WithMany("Notification")
+                        .HasForeignKey("DeviceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Device");
+                });
+
             modelBuilder.Entity("SmartHome.Models.Device", b =>
                 {
                     b.Navigation("DevicesStatus");
+
+                    b.Navigation("Notification");
                 });
 
             modelBuilder.Entity("SmartHome.Models.HomeUser", b =>
                 {
-                    b.Navigation("UserLogs");
+                    b.Navigation("UserHomeLogs");
                 });
 
             modelBuilder.Entity("SmartHome.Models.Room", b =>
                 {
                     b.Navigation("Devices");
-                });
-
-            modelBuilder.Entity("SmartHome.Models.UserType", b =>
-                {
-                    b.Navigation("HomeUsers");
                 });
 #pragma warning restore 612, 618
         }

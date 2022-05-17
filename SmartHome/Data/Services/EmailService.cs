@@ -11,7 +11,7 @@ namespace SmartHome.Data.Services
 {
     public class EmailService : IEmailService
     {
-        private const string templatePath = @"EmailTemplate/{0}.html";
+        private const string templatePath = @"Data/EmailTemplate/{0}.html";
         private readonly STMPConfigViewModel _smtpConfig;
 
         public EmailService(IOptions<STMPConfigViewModel> smtpConfig)
@@ -21,19 +21,19 @@ namespace SmartHome.Data.Services
 
         public async Task SendEmailforConfirmationEmail(UserEmailOptionsViewModel model)
         {
-            model.Subject = "Cinema Tickets";
+            model.Subject = "Smart Home Confirmation Email";
             model.Body = UpdatePlaceholder(GetEmailBody("ConfirmationEmail"), model.Placeholders);
             await SendEmail(model);
         }
         public async Task SendEmailforForgotPassword(UserEmailOptionsViewModel model)
         {
-            model.Subject = "Cinema Tickets";
+            model.Subject = "Smart Home Forgot Password";
             model.Body = UpdatePlaceholder(GetEmailBody("ForgotPassword"), model.Placeholders);
             await SendEmail(model);
         }
         private async Task SendEmail(UserEmailOptionsViewModel model)
         {
-            MailMessage mail = new MailMessage
+            MailMessage mail = new MailMessage()
             {
                 Subject = model.Subject,
                 Body = model.Body,
@@ -43,9 +43,9 @@ namespace SmartHome.Data.Services
 
             foreach (var Email in model.ToEmails)
             {
-                mail.To.Add(Email);
+                  mail.To.Add(Email);
             }
-
+            
             NetworkCredential networkCredential = new NetworkCredential(_smtpConfig.UserName, _smtpConfig.Password);
 
             SmtpClient smtpClient = new SmtpClient()

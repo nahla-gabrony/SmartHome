@@ -1,23 +1,36 @@
 ﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
-@*@if (_signInManager.IsSignedIn(User))
-{*@
-    <nav class="d-flex justify-content-end justify-content-sm-between align-items-center position-fixed">
-        <div id="sidebar-button"
-             class="text-end rounded-pill p-3 text-white sidebar-button">
-            <i class="fas fa-bars fs-4 fw-bold"></i>
-        </div>
-        <div class="d-flex align-items-center pe-3 profile-controller">
-            <i class="far fa-bell fs-4 pe-4 admin-icon"></i>
-            
-               @* <img src="~/@ViewData["UserImage"]" class="member-img rounded-circle" />*@
-                <img src="~/images/profile/2.png" class="member-img rounded-circle" />
-                <span class="d-none d-sm-inline fs-6 fw-bold m-1 admin-name">
-                 @*   @ViewData["UserName"]*@ Nahla Ahmed
-                </span>
-     
-        
-            
-        </div>
-    </nav>
-@*}*@
- 
+@inject Microsoft.AspNetCore.Identity.UserManager<ApplicationUser> _userManager
+@if (_signInManager.IsSignedIn(User))
+{
+    var user = await _userManager.GetUserAsync(User);
+    var userName = user.FirstName + " " + user.LastName;
+    var userImage = user.UserImageURL;
+        <nav class="d-flex justify-content-end justify-content-sm-between align-items-center position-fixed">
+            <div id="sidebar-button"
+                 class="text-end rounded-pill p-3 text-white sidebar-button">
+                <i class="fas fa-bars fs-4 fw-bold"></i>
+            </div>
+
+            <div class="d-flex align-items-center pe-3 profile-controller">
+
+                <div id="notif-count" class="drop fa-stack fa-lg me-4 d-inline-block" data-count="0">
+                    <a>
+                        <i class="fa fa-circle fa-stack-2x main-color"></i>
+                        <i class="fa fa-bell fa-stack-1x fa-inverse"></i>
+                    </a>
+
+                    <div class="dropdownContain ">
+                        <div id="notifcation-container" class="dropOut d-flex flex-column pt-4">
+
+                        </div>
+                    </div>
+                </div>
+                <img src="~/@userImage" class="member-img rounded-circle" />
+                <span class="d-none d-sm-inline fs-6 fw-bold m-1 admin-name"> @userName  </span>
+            </div>
+        </nav>
+}
+
+
+
+

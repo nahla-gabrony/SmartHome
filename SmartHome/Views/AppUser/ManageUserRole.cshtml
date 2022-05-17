@@ -1,0 +1,64 @@
+﻿@model List<UserRolesViewModel>
+@inject Microsoft.AspNetCore.Identity.UserManager<ApplicationUser> _userManager
+
+@{
+    ViewData["Title"] = "Manage User Roles";
+    string userId = Convert.ToString(ViewData["userId"]);
+    var user = await _userManager.FindByIdAsync(userId);
+    var userName = user.FirstName + " "+ user.LastName;
+}
+
+<section class="bg-section">
+    <div class="d-flex justify-content-center align-items-center container">
+
+        <div class="row confirm-alert">
+  
+            <div class="col-10 offset-1  col-lg-9 offset-lg-1 col-xl-8 offset-xl-2 ">
+
+                <div class="sign-container text-center text-white mb-5 px-3">
+                    <h2 class="pt-4  fw-bold">Manage User Roles</h2>
+                    <form method="post" class="row g-3">
+                        <div class="card-front my-5 m-auto p-3">
+                            <div class="row">
+                                <div class="col-12 form-group position-relative ">
+                                    <div class="card role-card mb-3">
+                                        <h5 class="card-header">Edit/Remove Roles From (@userName) </h5>
+                                        <div class="card-body">
+                                            @if (Model.Any())
+                                            {
+                                                @for (int i = 0; i < Model.Count; i++)
+                                                {
+                                                    <input asp-for="@Model[i].RoleName" hidden>
+                                                    <input asp-for="@Model[i].RoleId" hidden>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input role-checkbox " asp-for="@Model[i].IsSelected">
+                                                        <label class="form-check-label" asp-for="@Model[i].IsSelected">  @Model[i].RoleName  </label>
+                                                    </div>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <p class="card-text">There are no roles created yet</p>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div asp-validation-summary="ModelOnly" class="input-validation"> </div>
+                                <div class="col-12 form-group my-4 d-flex flex-column flex-sm-row justify-content-around">
+                                    <input type="submit" value="Update" class=" btn btn-main fs-5 px-5 py-2 mb-3 mb-sm-0">
+                                    <a asp-controller="AppUser" asp-action="Edit" asp-route-id="@ViewData["homeUserId"]" class="btn btn-danger fs-5 px-5 py-2">Back</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+

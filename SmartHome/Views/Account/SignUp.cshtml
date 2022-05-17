@@ -10,7 +10,7 @@
             <div class="col-10 offset-1  col-lg-9 offset-lg-1 col-xl-8 offset-xl-2 ">
 
                 <div class="signup-container text-center text-white mb-5 px-3">             
-                        <h2 class="pt-4 pb-4 fw-bold">Sign Up</h2>
+                        <h2 class="pt-4 pb-4 fw-bold">Add User</h2>
                         <form method="post" enctype="multipart/form-data" asp-action="SignUp" class="row g-3">
 
                             <div class="col-12">
@@ -22,10 +22,10 @@
                                 <span asp-validation-for="CoverPhoto" class="input-validation"></span>
                             </div>
                             <div class="col-12 col-md-6 mb-4">
-                                <select id="userType" class="form-select w-100 p-2 text-white">
+                                <select asp-for="UserType" id="userType" class="form-select w-100 p-2 text-white">
                                     <option selected disabled>Select User Type</option>
                                     <option value="1">Home User</option>
-                                    <option value="2">Appliction User</option> 
+                                    <option value="2">Appliction/Home User</option> 
                                 </select>
                             </div>
                             <div class="col-12 col-md-6 all-user d-none">
@@ -48,16 +48,19 @@
                                 <input asp-for="ConfirmPassword" type="password" class="input-field w-100 p-2 text-white" placeholder="Confirm Password" />
                                 <span asp-validation-for="ConfirmPassword" class="input-validation"></span>
                             </div>
-                            <div class="col-12 col-md-6 home-user d-none">
-                                <input type="text" class="input-field w-100 p-2 text-white" placeholder="Address" />
-                               
+                            <div class="col-12 col-md-6 all-user d-none">
+                                <input asp-for="Address" type="text" class="input-field w-100 p-2 text-white" placeholder="Address" />
+                                <span asp-validation-for="Address" class="input-validation"></span>
                             </div>
-                            <div class="col-12 col-md-6 home-user d-none">
-                                <input type="text" class="input-field w-100 p-2 text-white" placeholder="Phone Number" />
+                            <div class="col-12 col-md-6 all-user d-none">
+                                <input asp-for="PhoneNumber" type="text" class="input-field w-100 p-2 text-white" placeholder="Phone Number" />
+                                <span asp-validation-for="PhoneNumber" class="input-validation"></span>
                             </div>
                             <div class="col-12 justify-content-center all-user d-none">
                                 <input type="submit" class="submit-btn text-white fs-5 mb-3" value="Register">
                             </div>
+
+                            <div asp-validation-summary="ModelOnly"></div>
 
                         </form>
                     
@@ -69,5 +72,5 @@
     </div>
 </section>
 @section Scripts {
-    <script src="~/js/signup.js"></script>
+    <script src="~/js/SignUp.js"></script>
 }

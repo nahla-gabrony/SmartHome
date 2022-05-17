@@ -1,0 +1,157 @@
+﻿@{
+    ViewData["Title"] = "Manage Users";
+}
+<section class="bg-section pb-2">
+    <div class="container position-relative px-3 main-container ">
+        <div class="row mb-3">
+            @foreach (HomeUser user in Model.userHome)
+            {
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-12">
+                                <div class="card-header text-white bg-main">
+                                    <p class="card-text">
+                                        <h5 class="card-title">
+                                            @user.FirstName  @user.LastName
+                                        </h5>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center align-items-center mt-2">
+                                <img src="~/@user.UserImageURL" class="user-member-img rounded-circle" alt="@user.FirstName">
+                            </div>
+                            <div class="col-12">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <strong> <span class="main-color">Email: </span>@user.Email</strong>
+                                    </p>
+                                    <p class="card-text">
+                                        <strong> <span class="main-color">Phone: </span>@user.PhoneNumber</strong>
+                                    </p>
+                                    <p class="card-text">
+                                        <strong> <span class="main-color">Address: </span>@user.Address</strong>
+                                    </p>
+                                    <p class="card-text">
+                                        <strong> <span class="main-color">Role: </span> Home User</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card-footer ">
+                                    <div class="card-text d-flex justify-content-between">
+                                        <a class="btn btn-success" asp-controller="HomeUser" asp-action="Edit" asp-route-id="@user.Id">
+                                            <span class="pe-2">Edit</span>
+                                            <i class="fas fa-user-edit"></i>
+                                        </a>
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#model-@user.Id" class="btn btn-danger">
+                                            <span class="pe-2">Delete</span>
+                                            <i class="fas fa-user-slash"></i>
+                                        </button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="model-@user.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog text-black">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-black text-white">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Are you sure you want to delete the "@user.FirstName @user.LastName" user?
+
+                                                    </div>
+                                                    <form method="post" class="modal-footer">
+                                                        <button type="submit" asp-controller="HomeUser" asp-action="Delete" asp-route-id="@user.Id" class="btn btn-danger">Confirm Delete</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @foreach (HomeUser user in Model.userApp)
+            {
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-12">
+                                <div class="card-header text-white bg-main">
+                                    <p class="card-text">
+                                        <h5 class="card-title">
+                                            @user.FirstName  @user.LastName
+                                            <a class="text-white float-right">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </a>
+                                        </h5>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center align-items-center mt-2">
+                                <img src="~/@user.UserImageURL" class="user-member-img rounded-circle" alt="@user.FirstName">
+                            </div>
+                            <div class="col-12">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <strong> <span class="main-color">Email: </span>@user.Email</strong>
+                                    </p>
+                                    <p class="card-text">
+                                        <strong> <span class="main-color">Phone: </span>@user.PhoneNumber</strong>
+                                    </p>
+                                    <p class="card-text">
+                                        <strong> <span class="main-color">Address: </span>@user.Address</strong>
+                                    </p>
+                                    <p class="card-text">
+                                        <strong> <span class="main-color">Role: </span> Home/Application User</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card-footer ">
+                                    <div class="card-text d-flex justify-content-between">
+                                        <a class="btn btn-success" asp-controller="AppUser" asp-action="Edit" asp-route-id="@user.Id">
+                                            <span class="pe-2">Edit</span>
+                                            <i class="fas fa-user-edit"></i>
+                                        </a>
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#model-@user.Id" class="btn btn-danger">
+                                            <span class="pe-2">Delete</span>
+                                            <i class="fas fa-user-slash"></i>
+                                        </button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="model-@user.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog text-black">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-black text-white">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Are you sure you want to delete the "@user.FirstName @user.LastName" user?
+
+                                                    </div>
+                                                    <form method="post" class="modal-footer">
+                                                        <button type="submit" asp-controller="AppUser" asp-action="Delete" asp-route-id="@user.Id" class="btn btn-danger">Confirm Delete</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

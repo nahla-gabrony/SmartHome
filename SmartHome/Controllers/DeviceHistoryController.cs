@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SmartHome.Data.Services;
 using SmartHome.Data.ViewModels.Account;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace SmartHome.Controllers
 {
+    [Authorize]
     public class DeviceHistoryController : Controller
     {
         private readonly IDevicesService _devicesService;
@@ -23,10 +25,14 @@ namespace SmartHome.Controllers
 
        
         [Route("History/{id:int:min(1)}")]
-        public async Task<IActionResult> DevicesHistory(int id)
+        public async Task<IActionResult> History(int id)
         {
-           var data = await _devicesService.GetHistory(id);
-            if (data.Any(x => x.DeviceId == 1))
+            var data = await _devicesService.GetHistory(id);
+            if (data == null)
+            {
+                return View("NotFound");
+            }
+            else if (data.Any(x => x.DeviceId == 1))
             {
                 ViewData["SystemName"] = "Home Security";
                 ViewData["IconName"] = "fas fa-hotel";
@@ -45,7 +51,7 @@ namespace SmartHome.Controllers
             else if (data.Any(x => x.DeviceId == 4))
             {
                 ViewData["SystemName"] = "Smoke System";
-                ViewData["IconName"] = "fas fa-gripfire";
+                ViewData["IconName"] = "fab fa-gripfire";
                 ViewData["TrueValue"] = "Safe";
                 ViewData["FalseValue"] = "Smoke";
             }
@@ -59,7 +65,7 @@ namespace SmartHome.Controllers
             }
 
 
-            else if (data.Any(x => x.DeviceId == 32))
+            else if (data.Any(x => x.DeviceId == 38))
             {
                 ViewData["SystemName"] = "Garage Security";
                 ViewData["IconName"] = "fas fa-warehouse";
@@ -67,9 +73,9 @@ namespace SmartHome.Controllers
                 ViewData["FalseValue"] = "Unsafe";
             }
 
-            else if (data.Any(x => x.DeviceId == 34 || x.DeviceId == 35))
+            else if (data.Any(x => x.DeviceId == 39 || x.DeviceId == 40))
             {
-                if(data.Any(x => x.DeviceId == 34))
+                if(data.Any(x => x.DeviceId == 39))
                 {
                     ViewData["SystemName"] = "Left Parking";
                 }
@@ -80,6 +86,13 @@ namespace SmartHome.Controllers
                 ViewData["IconName"] = "fas fa-parking";
                 ViewData["TrueValue"] = "Empty";
                 ViewData["FalseValue"] = "Busy";
+            }
+            else if (data.Any(x => x.DeviceId == 42))
+            {
+                ViewData["SystemName"] = "Garage Light";
+                ViewData["IconName"] = "far fa-lightbulb";
+                ViewData["TrueValue"] = "On";
+                ViewData["FalseValue"] = "Off";
             }
             return View(data);
         }

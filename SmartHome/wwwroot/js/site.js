@@ -8,7 +8,7 @@ sidebarBtn.addEventListener("click", () => {
 const sidebarElement = window.location.pathname.split('/');
 let elementName = "";
 if (sidebarElement.length > 1) {
-     elementName = sidebarElement[1];
+    elementName = sidebarElement[1];
 }
 
 const currentLink = document.getElementById(elementName);

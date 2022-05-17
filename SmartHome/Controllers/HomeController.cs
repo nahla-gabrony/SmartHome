@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SmartHome.Data.Services;
 using SmartHome.Data.ViewModels.Account;
@@ -12,40 +14,33 @@ using System.Threading.Tasks;
 
 namespace SmartHome.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IDevicesService _devicesService;
-        private readonly IShowDevicesService _showDevicesService;
+        private readonly INotificationService _notificationService;
 
         public HomeController(IDevicesService devicesService,
-                              IShowDevicesService showDevicesService)
+                                  INotificationService notificationService)
         {
             _devicesService = devicesService;
-            _showDevicesService = showDevicesService;
+            _notificationService = notificationService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Index(string UserImageURL, string UserName)
-        {
-            ViewData["UserImage"] = UserImageURL;
-            ViewData["UserName"] = UserName;
-            var Devices = await _showDevicesService.ShowDevices();
-            return View(Devices);
-        }
 
-        [HttpPost]
-        public async Task<IActionResult> Index(List<Show_Devices> model)
-        {
-            var Devices = await _showDevicesService.ShowDevices();
-            return View(Devices);
-        }
-
-        [Route("HomeRooms")]
-        public IActionResult HomeRooms()
+        [Route("Home")]
+        public IActionResult index()
         {
             return View();
         }
-       
+        public IActionResult Error(int code)
+        {
+            var statusCodeReExecuteFeature = HttpContext.Features.Get<IStatusCodeReExecuteFeature>();
+            ViewBag.ErrorStatusCode = code;
+
+            return View();
+        }
+
 
         // Json Function
         [HttpPost]
@@ -67,6 +62,20 @@ namespace SmartHome.Controllers
         public IActionResult SendInputData(int dataValue ,int dataId)
         {
             _devicesService.UpdateData(dataValue, dataId);
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SendNotification(string checkValue, int dataId)
+        {
+            if (checkValue == "true")
+            {
+                await _notificationService.CreateNotification(true, dataId);
+            }
+            else
+            {
+                await _notificationService.CreateNotification(false, dataId);
+            }
             return Ok();
         }
 

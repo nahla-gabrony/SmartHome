@@ -42,5 +42,18 @@ userType.addEventListener("change", () => {
     });
 });
 
-
+document.addEventListener("DOMContentLoaded", () => {
+    allUser.forEach(user => {
+        user.classList.add("d-flex");
+        user.classList.remove("d-none");
+    });
+    if (userType.value == "1") {
+        user.classList.add("d-flex");
+        user.classList.remove("d-none");
+    }
+    else {
+        user.classList.remove("d-flex");
+        user.classList.add("d-none");
+    }
+});
 

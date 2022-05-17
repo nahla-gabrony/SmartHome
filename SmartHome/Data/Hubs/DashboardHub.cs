@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Configuration;
-using SmartHome.Data.Services;
+using SmartHome.Data.SignalRServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,26 +10,22 @@ namespace SmartHome.Data.Hubs
 {
     public class DashboardHub : Hub
     {
-    //    HomeSystemsService _homeSystemsServices;
-        UserHomeService _userHomeServices;
-        HomeDevicesService _homeDevicesService;
+
+        HomeUserStatusService _homeUserStatusService;
+        DevicesStatusService _homeDevicesService;
+        NotificationStatusService _notificationStatusService;
         public DashboardHub(IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
-        //    _homeSystemsServices = new HomeSystemsService(connectionString);
-            _userHomeServices = new UserHomeService(connectionString);
-            _homeDevicesService = new HomeDevicesService(connectionString);
+            _homeUserStatusService = new HomeUserStatusService(connectionString);
+            _homeDevicesService = new DevicesStatusService(connectionString);
+            _notificationStatusService = new NotificationStatusService(connectionString);
         }
 
-        //public async Task SendSystemsData() 
-        //{
-        //    var homeSystemData = _homeSystemsServices.GetHomeSystems();
-        //    await Clients.All.SendAsync("ReceivedSystemsData", homeSystemData);
-        //} 
         
         public async Task SendUserData() 
         {
-            var UserData = _userHomeServices.GetUserData();
+            var UserData = _homeUserStatusService.GetUserData();
             await Clients.All.SendAsync("ReceivedUserData", UserData);
         }
 
@@ -37,6 +33,12 @@ namespace SmartHome.Data.Hubs
         {
             var DevicesData = _homeDevicesService.GetDevicesData();
             await Clients.All.SendAsync("ReceivedDevicesData", DevicesData);
+        }
+
+        public async Task SendNotificationsData()
+        {
+            var Notifications = _notificationStatusService.GetNotificationsData();
+            await Clients.All.SendAsync("ReceivedNotificationsData", Notifications);
         }
     }
 }

@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="#">
+    <link rel="shortcut icon" href="~/images/logo.ico">
     <!--  Font awesome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -27,60 +28,13 @@
 </head>
 <body>
 
-<aside id="sidebar" class="position-fixed position-relative overflow-hidden sidebar active">
-    <div class="d-flex align-items-center text-white text-center logo-details mt-2">
-        <span class="fs-2 logo-title">Smart Home</span>
-        <img src="~/images/background/1.png" class="w-100" alt="" />
-    </div>
-    <ul class="p-0 mt-2 sidebar-links">
-        <li class="position-relative">
-            <a id="index" asp-controller="Home" asp-action="Index" class="btn-active d-flex align-items-center py-3 active">
-                <i class="far fa-tachometer-alt text-center fs-4 text-white"></i>
-                <span class="text-white fs-6 item-title">Dashboard</span>
-            </a>
-        </li>
-        <li>
-            <a id="HomeRooms" asp-controller="Home" asp-action="HomeRooms" class="btn-active d-flex align-items-center py-3">
-                <i class="far fa-home text-center fs-4 text-white"></i>
-                <span class="text-white fs-6 item-title">Home Rooms</span>
-            </a>
-        </li>
-        <li>
-            <a id="Members" asp-controller="Member" asp-action="Members" class="btn-active d-flex align-items-center py-3">
-                <i class="far fa-users text-center fs-4 text-white"></i>
-                <span class="text-white fs-6 item-title">Members</span>
-            </a>
-        </li>
-        <li>
-            <a asp-controller="Account" asp-action="SignIn" class="btn-active d-flex align-items-center py-3">
-                <i class="far fa-users text-center fs-4 text-white"></i>
-                <span class="text-white fs-6 item-title">Sign In</span>
-            </a>
-        </li> 
-        <li>
-            <a id="History" asp-controller="DeviceHistory" asp-action="DevicesHistory" asp-route-id="1" class="btn-active d-flex align-items-center py-3">
-                <i class="fas fa-cog text-center fs-4 text-white"></i>
-                <span class="text-white fs-6 item-title">History</span>
-            </a>
-        </li>
-        <li class="position-absolute bottom-0 log-out">
-            <a asp-controller="Account" asp-action="ChangePassword" class="d-flex align-items-center py-3">
-                <i class="fas fa-user-circle ps-4 fs-4 text-white"></i>
-                <span class="text-white fs-6 item-title">Profile Edit</span>
-            </a>
-            <a asp-controller="Account" asp-action="Logout" class="d-flex align-items-center py-3">
-                <i class="far fa-sign-out-alt ps-4 fs-4 text-white"></i>
-                <span class="text-white fs-6 item-title">Log out</span>
-            </a>
-        </li>
-    </ul>
-</aside>
+    <partial name="_Sidebar" />
+    <main class="position-relative main-section">
+        <partial name="_login" />
+        @RenderBody()
+        <partial name="_Alert" />
 
-
-<main class="position-relative main-section">
-    <partial name="_login" />
-    @RenderBody()
-</main>
+    </main>
 
 
     <footer class="text-center text-white">
@@ -88,18 +42,43 @@
             &copy; 2022 Copyright Smart Home
         </div>
     </footer>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+           $(document).on('change', '.alert-notification', function () {
+
+            $.ajax({
+                url: '@Url.Action("SendNotification", "Home")',
+                type: "Post",
+                data: {
+                    checkValue: $(this).is(':checked'),
+                    dataId: $(this).attr("data-id"),
+                },
+                success: function (data) {
+
+                },
+                error: function (e) {
+                    alert('it broked');
+                },
+
+            });
+        });
+    });
+    </script>
+
     <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-            integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
-   <script src="~/js/site.js" ></script>
+    <script src="~/js/Site.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/Notification.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
     @await RenderSectionAsync("JsonJs", required: false)
+
 </body>
 </html>

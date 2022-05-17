@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+
+<aside id="sidebar" class="position-fixed position-relative overflow-hidden sidebar active">
+    <div class="d-flex align-items-center text-white text-center logo-details mt-2">
+        <span class="fs-2 logo-title">Smart Home</span>
+        <img src="~/images/background/1.png" class="w-100" alt="" />
+    </div>
+    <ul class="p-0 mt-2 sidebar-links">
+        <li>
+            <a id="Home" asp-controller="Home" asp-action="Index" class="btn-active d-flex align-items-center py-3">
+                <i class="far fa-home text-center fs-4 text-white"></i>
+                <span class="text-white fs-6 item-title">Home Rooms</span>
+            </a>
+        </li>
+        @if (User.IsInRole("Dashboard Admin"))
+        {
+            <li class="position-relative">
+
+                <a id="Dashboard" asp-controller="Dashboard" asp-action="Dashboard" class="btn-active d-flex align-items-center py-3 active">
+                    <i class="far fa-tachometer-alt text-center fs-4 text-white"></i>
+                    <span class="text-white fs-6 item-title">Dashboard</span>
+                </a>
+            </li>
+        }
+        @if (User.IsInRole("Control Users"))
+        {
+            <li>
+                <a id="Members" asp-controller="HomeUser" asp-action="Members" class="btn-active d-flex align-items-center py-3">
+                    <i class="far fa-users text-center fs-4 text-white"></i>
+                    <span class="text-white fs-6 item-title">Members</span>
+                </a>
+            </li>
+        }
+        @if (User.IsInRole("Dashboard Admin"))
+        {
+            <li>
+                <a id="History" asp-controller="DeviceHistory" asp-action="History" asp-route-id="1" class="btn-active d-flex align-items-center py-3">
+                    <i class="fas fa-cog text-center fs-4 text-white"></i>
+                    <span class="text-white fs-6 item-title">History</span>
+                </a>
+            </li>
+        }
+        <li class="position-absolute bottom-0 log-out">
+            <a id="User" asp-controller="AppUser" asp-action="ProfileDetails" class="d-flex align-items-center py-3">
+                <i class="fas fa-user-circle ps-4 fs-4 text-white"></i>
+                <span class="text-white fs-6 item-title">Profile Edit</span>
+            </a>
+            <a asp-controller="Account" asp-action="Logout" class="d-flex align-items-center py-3">
+                <i class="far fa-sign-out-alt ps-4 fs-4 text-white"></i>
+                <span class="text-white fs-6 item-title">Log out</span>
+            </a>
+        </li>
+    </ul>
+</aside>
+
+
+

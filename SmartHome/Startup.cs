@@ -11,6 +11,7 @@ using SmartHome.Data.Hubs;
 using SmartHome.Data.MiddlewareExtensions;
 using SmartHome.Data.Services;
 using SmartHome.Data.SubscribeTableDependencies;
+using SmartHome.Data.ViewModels.Email;
 using SmartHome.Models;
 using System;
 using System.Collections.Generic;
@@ -49,11 +50,15 @@ namespace SmartHome
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IDevicesService, DevicesService>();
-            services.AddScoped<IShowDevicesService, ShowDevicesService>();
+            services.AddScoped<INotificationService, NotificationService>();
 
+            //SignalR
             services.AddSingleton<DashboardHub>();
             services.AddSingleton<SubscribeUsersTableDependency>();
             services.AddSingleton<SubscribeDevicesTableDependency>();
+            services.AddSingleton<SubscribeNotificationTableDependency>();
+
+            services.Configure<STMPConfigViewModel>(_configuration.GetSection("SMTPConfig"));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -64,9 +69,9 @@ namespace SmartHome
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
+                app.UseStatusCodePagesWithReExecute("/Home/Error", "?code={0}");
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -77,15 +82,18 @@ namespace SmartHome
 
             app.UseEndpoints(endpoints =>
             {
+
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Account}/{action=SignIn}/{id?}");
+
                 endpoints.MapHub<DashboardHub>("/dashboardHub");
             });
 
             var connectionString = _configuration.GetConnectionString("DefaultConnection");
             app.UseSqlTableDependency<SubscribeUsersTableDependency>(connectionString);
             app.UseSqlTableDependency<SubscribeDevicesTableDependency>(connectionString);
+            app.UseSqlTableDependency<SubscribeNotificationTableDependency>(connectionString);
 
         }
     }
