@@ -1,6 +1,6 @@
 <h1 align="center">
-  <img width="30px" src="https://github.com/nahla-gabrony/Screen-Shoots/blob/main/SmartHome_ScreenShot/logo.png" />
-    Booking Cinema Tickets
+  <img width="50px" src="https://github.com/nahla-gabrony/Screen-Shoots/blob/main/SmartHome_ScreenShot/logo.png" />
+    Smart Home
 </h1>
 
 ## 💻 Features
