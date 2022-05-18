@@ -41,10 +41,10 @@
   <img src="https://github.com/nahla-gabrony/Screen-Shoots/blob/main/SmartHome_ScreenShot/Delete_User.gif" />
   
   <h3>Edit Profile</h3>
-  <img  src="https://github.com/nahla-gabrony/Screen-Shoots/blob/main/CinemaTickets_ScreenShot/Edit_Profile.gif" />
+  <img  src="https://github.com/nahla-gabrony/Screen-Shoots/blob/main/SmartHome_ScreenShot/Edit_Profile.gif" />
   
   <h3>Add new user</h3>
-  <img src="https://github.com/nahla-gabrony/Screen-Shoots/blob/main/CinemaTickets_ScreenShot/Add_User.gif" />
+  <img src="https://github.com/nahla-gabrony/Screen-Shoots/blob/main/SmartHome_ScreenShot/Add_User.gif" />
   
 
 ## 🛠️ Installation Steps
