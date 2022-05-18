@@ -82,13 +82,13 @@ namespace SmartHome.Controllers
                         return View(model);
                     }
                     ModelState.Clear();
-                    return RedirectToAction("ConfirmEmail", new { email = model.Email });
                 }
+                return RedirectToAction("ConfirmEmail", new { email = model.Email });
             }
             return View();
         }
-
-        [HttpGet("Members/confirm-email")]
+  
+        [HttpGet("Members/Confirm-Email")]
         public async Task<IActionResult> ConfirmEmail(string uid, string token, string email)
         {
             ConfirmEmailViewModel model = new ConfirmEmailViewModel
@@ -106,8 +106,8 @@ namespace SmartHome.Controllers
             }
             return View(model);
         }
-
-        [HttpPost("Members/confirm-email")]
+        
+        [HttpPost("Members/Confirm-Email")]
         public async Task<IActionResult> ConfirmEmail(ConfirmEmailViewModel model)
         {
             var user = await _accountService.GetUserByEmail(model.Email);

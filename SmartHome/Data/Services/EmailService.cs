@@ -21,13 +21,13 @@ namespace SmartHome.Data.Services
 
         public async Task SendEmailforConfirmationEmail(UserEmailOptionsViewModel model)
         {
-            model.Subject = "Smart Home Confirmation Email";
+            model.Subject = "Smart Home";
             model.Body = UpdatePlaceholder(GetEmailBody("ConfirmationEmail"), model.Placeholders);
             await SendEmail(model);
         }
         public async Task SendEmailforForgotPassword(UserEmailOptionsViewModel model)
         {
-            model.Subject = "Smart Home Forgot Password";
+            model.Subject = "Smart Home";
             model.Body = UpdatePlaceholder(GetEmailBody("ForgotPassword"), model.Placeholders);
             await SendEmail(model);
         }
