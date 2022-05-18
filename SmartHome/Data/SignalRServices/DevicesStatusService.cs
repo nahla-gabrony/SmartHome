@@ -1,13 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SmartHome.Data.HelperFunction;
-using SmartHome.Data.ViewModels.Home;
+﻿using SmartHome.Data.HelperFunction;
 using SmartHome.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SmartHome.Data.SignalRServices
 {

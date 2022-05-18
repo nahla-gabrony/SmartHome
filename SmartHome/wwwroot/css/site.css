@@ -17,9 +17,6 @@
   --dark-green-color: #105653;
   --green-color: #146c67;
   --lighter-green-color: #24c2ba;
-  /* --dark-green-color: #163721;
-  --green-color: #33804c;
-  --lighter-green-color: #92d3a8; */
   /* --------- Measurements --------*/
   --sidebar-width: 15rem;
   --sidebar-min-width: 3.75rem;
@@ -381,7 +378,6 @@ nav .profile-controller .arrow-down {
 .sign-container,
 .signup-container {
     background: url("../images/background/signin.png");
-    /*background-repeat: repeat;*/
 }
 .sign-container {
     margin-top: 1rem;
@@ -1490,7 +1486,7 @@ ul.edit-device-box {
     position: absolute;
     z-index: 2;
     left: 50%;
-    margin-left: -130px;  half of width 
+    margin-left: -130px;  /*half of width*/ 
     top: -400px;
 }
 

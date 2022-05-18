@@ -5,6 +5,7 @@ var connectionAlert = new signalR.HubConnectionBuilder().withUrl("/dashboardHub"
 connectionAlert.start().then(function () {
 	InvokeUserSystems();
 	InvokeDevicesSystems();
+	InvokeNotificationsSystems();
 
 }).catch(function (err) {
 	return console.error(err.toString());
@@ -31,7 +32,6 @@ connectionAlert.on("ReceivedDevicesData", function (data) {
 	BindDevice(data);
 	BindWeatherSystem(data);
 	BindGardenSystem(data);
-	BindAlertSystem(data);
 });
 
 function BindHomeSystemToGrid(data) {
@@ -210,6 +210,8 @@ function BindDevice(data) {
 		}
 	});
 }  
+
+
 function historyLocation(value1) {
 	var url = "https://localhost:44303/history/" + value1;
 	location.replace(url);

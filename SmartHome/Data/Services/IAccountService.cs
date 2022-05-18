@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using SmartHome.Data.ViewModels.Account;
-using SmartHome.Data.ViewModels.User;
 using SmartHome.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SmartHome.Data.Services

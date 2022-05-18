@@ -3,7 +3,7 @@
 var connectionAlert = new signalR.HubConnectionBuilder().withUrl("/dashboardHub").build();
 
 connectionAlert.start().then(function () {
-	InvokeDeviceSystems();
+	InvokeDevicesSystems();
 	InvokeNotificationsSystems();
 
 }).catch(function (err) {
@@ -12,7 +12,7 @@ connectionAlert.start().then(function () {
 
 
 // Devices 
-function InvokeDeviceSystems() {
+function InvokeDevicesSystems() {
 	connectionAlert.invoke("SendDevicesData").catch(function (err) {
 		return console.error(err.toString());
 	});
@@ -50,11 +50,12 @@ function BindNotifcationSystem(data) {
 		else if (data.deviceId == 4) {
 			icon = "fab fa-gripfire";
 		}
-		else if (data.deviceId == 32) {
+		else if(data.deviceId == 38)   {
 			icon = "fas fa-warehouse";
+			
 		}
 
-		$('#notifcation-container').append(`<button class="btn-notification notifcation-item" onclick ="deviceLocation(${data.deviceId}, ${data.id})">
+		$('#notifcation-container').append(`<button class="btn-notification notifcation-item d-flex justify-content-left" onclick ="deviceLocation(${data.deviceId}, ${data.id})">
 												<div class="fa-stack  me-2 mb-3 d-inline-block">
 													<i class="fa fa-circle fa-stack-2x main-color"></i>
 													<i class="fa-stack-1x fa-inverse ${icon}"></i>
@@ -62,8 +63,7 @@ function BindNotifcationSystem(data) {
 												<div class="d-inline-block">
 													<div class="notifcation-text fw-bold text-left">${data.notificationHeader}</div>
 													<div class="notifcation-time text-black-50">
-														<i class="fas fa-clock"></i>
-														<span >${data.notificationDate}</span>
+														<span>${data.notificationBody}</span>
 													</div>
 												</div>
 												</button>`);
@@ -129,7 +129,7 @@ function BindAlertSystem(data) {
 			}
 		}
 
-		else if (data.deviceId == 32) {
+		else if (data.deviceId == 38) {
 			if (data.status == 1 && garageNotif != data.status) {
 				$('#garagealert').prop('checked', true).trigger('change');
 				garageNotif = 1;

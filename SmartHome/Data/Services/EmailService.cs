@@ -1,5 +1,5 @@
-﻿using SmartHome.Data.ViewModels.Email;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
+using SmartHome.Data.ViewModels.Email;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;

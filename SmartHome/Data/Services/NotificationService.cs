@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SmartHome.Data.ViewModels.Home;
 using SmartHome.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,33 +13,6 @@ namespace SmartHome.Data.Services
         public NotificationService(SmartHomeContext context)
         {
             _context = context;
-        }
-
-
-        public async Task<IEnumerable<NotificationViewModel>> GetNotificationList()
-        {
-            var Model = await _context.Notification.Where(x => x.IsRead == false).ToListAsync();
-            var data = new List<NotificationViewModel>();
-            foreach (var item in Model)
-            {
-                var newItem = new NotificationViewModel
-                {
-                    Id = item.Id,
-                    DeviceId = item.DeviceId,
-                    NotificationHeader = item.NotificationHeader,
-                    NotificationBody = item.NotificationBody,
-                    NotificationDate = ConvertDateTime(item.NotificationDate),
-                    IsRead = item.IsRead,
-                    Status = item.Status
-                };
-                data.Add(newItem);
-            }
-          
-            return data;
-        }
-        public async Task<int> GetDeviceId(int dataId)
-        {
-            return await _context.Notification.Where(x => x.Id == dataId).Select(x=>x.DeviceId).FirstOrDefaultAsync();
         }
             public async Task UpdateNotification(int dataId)
         {
@@ -71,7 +42,7 @@ namespace SmartHome.Data.Services
             else if (dataId == 3 && checkValue == true)
             {
                 header = "Fire System";
-                body = "There is Smoke in House";
+                body = "There is Fire in House";
             }
             else if (dataId == 3 && checkValue == false)
             {
@@ -88,12 +59,12 @@ namespace SmartHome.Data.Services
                 header = "Smoke System";
                 body = "There is no Smoke in House";
             }
-            else if (dataId == 32 && checkValue == true)
+            else if (dataId == 38 && checkValue == true)
             {
                 header = "Garage Security";
                 body = "Someone Break Into the Garage.";
             }
-            else if (dataId == 32 && checkValue == false)
+            else if (dataId == 38 && checkValue == false)
             {
                 header = "Garage Security";
                 body = "The Garage is Safe Now";

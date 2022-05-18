@@ -1,15 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using SmartHome.Data.Services;
-using SmartHome.Data.ViewModels.Account;
-using SmartHome.Models;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Dynamic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SmartHome.Controllers
@@ -44,7 +36,7 @@ namespace SmartHome.Controllers
 
         // Json Function
         [HttpPost]
-        public IActionResult SendData(string checkValue,int dataId)
+        public IActionResult SendCheckboxData(string checkValue,int dataId)
         {
            if(checkValue == "true")
             {

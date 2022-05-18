@@ -1,4 +1,4 @@
-﻿@model  IEnumerable<Devices_Status>
+﻿@model IEnumerable<Devices_Status>
 @{
     ViewData["Title"] = "History";
 }
@@ -67,7 +67,7 @@
                         <a asp-controller="DeviceHistory" asp-action="History" asp-route-id="39" class="btn btn-outline-main  w-100 mb-3 @(Model.Any(x=>x.DeviceId == 39) ? "d-none" : "flex")">  Left Parking   </a>
                         <a asp-controller="DeviceHistory" asp-action="History" asp-route-id="40" class="btn btn-outline-main  w-100 mb-3 @(Model.Any(x=>x.DeviceId == 40) ? "d-none" : "flex")">   Right Parking  </a>
                         <a asp-controller="DeviceHistory" asp-action="History" asp-route-id="42" class="btn btn-outline-main  w-100 mb-3 @(Model.Any(x=>x.DeviceId == 42) ? "d-none" : "flex")">  Garage Light  </a>
-               
+
                     </div>
                 </div>
             </div>
@@ -75,3 +75,7 @@
 
     </div>
 </section>
+
+@section JsonJs {
+
+}

@@ -2,6 +2,7 @@
 var connectionAlert = new signalR.HubConnectionBuilder().withUrl("/dashboardHub").build();
 connectionAlert.start().then(function () {
 	InvokeDevicesSystems();
+	InvokeNotificationsSystems();
 
 }).catch(function (err) {
 	return console.error(err.toString());
@@ -174,22 +175,22 @@ function BindDevice(data) {
 		if (data.deviceId == 2 || data.deviceId == 5) {
 			if (data.deviceId == 2) {
 				if (data.status == 1) {
-					$('#homeDoor').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox"  data-id="2" checked />`);
+					$('#homeDoor').append(`<input class="form-check-input send-checkbox input-checkbox mb-2" type="checkbox"  data-id="2" checked />`);
 					$('#homeDoor').append(` <label class="form-check-label label-checkbox fw-bold"   data-id="2" > Open  </label>`);
 				}
 				else {
-					$('#homeDoor').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox" id="flexSwitchCheckChecked" data-id="2"/>`);
+					$('#homeDoor').append(`<input class="form-check-input send-checkbox input-checkbox mb-2" type="checkbox" id="flexSwitchCheckChecked" data-id="2"/>`);
 					$('#homeDoor').append(` <label class="form-check-label label-checkbox fw-bold"  for="flexSwitchCheckChecked" data-id="2" > Close  </label>`);
 				}
 
 			}
 			else if (data.deviceId == 5) {
 				if (data.status == 1) {
-					$('#outdoorLight').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox" id="flexSwitchCheckChecked" data-id="5" checked />`);
+					$('#outdoorLight').append(`<input class="form-check-input send-checkbox input-checkbox mb-2" type="checkbox" id="flexSwitchCheckChecked" data-id="5" checked />`);
 					$('#outdoorLight').append(` <label class="form-check-label label-checkbox fw-bold"  for="flexSwitchCheckChecked" data-id="5"> On  </label>`);
 				}
 				else {
-					$('#outdoorLight').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox" id="flexSwitchCheckChecked" data-id="5"/>`);
+					$('#outdoorLight').append(`<input class="form-check-input send-checkbox input-checkbox mb-2" type="checkbox" id="flexSwitchCheckChecked" data-id="5"/>`);
 					$('#outdoorLight').append(`<label class="form-check-label label-checkbox fw-bold"  for="flexSwitchCheckChecked" data-id="5"> Off  </label>`);
 				}
 
@@ -202,12 +203,12 @@ function BindDevice(data) {
 
 			if (data.deviceId == 8) {
 				if (data.status == 1) {
-					$('#RoomOne .tv-checkbox').append(`<input type="checkbox" class="checkbox" checked  data-id="8"/>`);
+					$('#RoomOne .tv-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox" checked  data-id="8"/>`);
 					$('#RoomOne .tv-checkbox').append(`<div class="checkbox-btn"></div>`);
 					$('#RoomOne .tv-checkbox').append(` <div class="checkbox-layer" ></div>`);
 				}
 				else {
-					$('#RoomOne .tv-checkbox').append(`<input type="checkbox" class="checkbox"  data-id="8"/>`);
+					$('#RoomOne .tv-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox"  data-id="8"/>`);
 					$('#RoomOne .tv-checkbox').append(`<div class="checkbox-btn" ></div>`);
 					$('#RoomOne .tv-checkbox').append(`<div class="checkbox-layer" ></div>`);
 				}
@@ -215,12 +216,12 @@ function BindDevice(data) {
 			}
 			else if (data.deviceId == 9) {
 				if (data.status == 1) {
-					$('#RoomOne .door-checkbox').append(`<input type="checkbox" class="checkbox" checked  data-id="9"/>`);
+					$('#RoomOne .door-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox" checked  data-id="9"/>`);
 					$('#RoomOne .door-checkbox').append(`<div class="checkbox-btn-door"></div>`);
 					$('#RoomOne .door-checkbox').append(` <div class="checkbox-layer" ></div>`);
 				}
 				else {
-					$('#RoomOne .door-checkbox').append(`<input type="checkbox" class="checkbox"  data-id="9"/>`);
+					$('#RoomOne .door-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox"  data-id="9"/>`);
 					$('#RoomOne .door-checkbox').append(`<div class="checkbox-btn-door" ></div>`);
 					$('#RoomOne .door-checkbox').append(`<div class="checkbox-layer" ></div>`);
 				}
@@ -334,12 +335,12 @@ function BindDevice(data) {
 
 			if (data.deviceId == 13) {
 				if (data.status == 1) {
-					$('#RoomTwo .tv-checkbox').append(`<input type="checkbox" class="checkbox" checked  data-id="13"/>`);
+					$('#RoomTwo .tv-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox" checked  data-id="13"/>`);
 					$('#RoomTwo .tv-checkbox').append(`<div class="checkbox-btn"></div>`);
 					$('#RoomTwo .tv-checkbox').append(` <div class="checkbox-layer" ></div>`);
 				}
 				else {
-					$('#RoomTwo .tv-checkbox').append(`<input type="checkbox" class="checkbox"  data-id="13"/>`);
+					$('#RoomTwo .tv-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox"  data-id="13"/>`);
 					$('#RoomTwo .tv-checkbox').append(`<div class="checkbox-btn" ></div>`);
 					$('#RoomTwo .tv-checkbox').append(`<div class="checkbox-layer" ></div>`);
 				}
@@ -347,7 +348,7 @@ function BindDevice(data) {
 			}
 			else if (data.deviceId == 14) {
 				if (data.status == 1) {
-					$('#RoomTwo .door-checkbox').append(`<input type="checkbox" class="checkbox" checked  data-id="14"/>`);
+					$('#RoomTwo .door-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox" checked  data-id="14"/>`);
 					$('#RoomTwo .door-checkbox').append(`<div class="checkbox-btn-door"></div>`);
 					$('#RoomTwo .door-checkbox').append(` <div class="checkbox-layer" ></div>`);
 				}
@@ -465,12 +466,12 @@ function BindDevice(data) {
 
 			if (data.deviceId == 18) {
 				if (data.status == 1) {
-					$('#RoomThree .tv-checkbox').append(`<input type="checkbox" class="checkbox" checked  data-id="18"/>`);
+					$('#RoomThree .tv-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox" checked  data-id="18"/>`);
 					$('#RoomThree .tv-checkbox').append(`<div class="checkbox-btn"></div>`);
 					$('#RoomThree .tv-checkbox').append(` <div class="checkbox-layer" ></div>`);
 				}
 				else {
-					$('#RoomThree .tv-checkbox').append(`<input type="checkbox" class="checkbox"  data-id="18"/>`);
+					$('#RoomThree .tv-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox"  data-id="18"/>`);
 					$('#RoomThree .tv-checkbox').append(`<div class="checkbox-btn" ></div>`);
 					$('#RoomThree .tv-checkbox').append(`<div class="checkbox-layer" ></div>`);
 				}
@@ -478,12 +479,12 @@ function BindDevice(data) {
 			}
 			else if (data.deviceId == 19) {
 				if (data.status == 1) {
-					$('#RoomThree .door-checkbox').append(`<input type="checkbox" class="checkbox" checked  data-id="19"/>`);
+					$('#RoomThree .door-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox" checked  data-id="19"/>`);
 					$('#RoomThree .door-checkbox').append(`<div class="checkbox-btn-door"></div>`);
 					$('#RoomThree .door-checkbox').append(` <div class="checkbox-layer" ></div>`);
 				}
 				else {
-					$('#RoomThree .door-checkbox').append(`<input type="checkbox" class="checkbox"  data-id="19"/>`);
+					$('#RoomThree .door-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox"  data-id="19"/>`);
 					$('#RoomThree .door-checkbox').append(`<div class="checkbox-btn-door" ></div>`);
 					$('#RoomThree .door-checkbox').append(`<div class="checkbox-layer" ></div>`);
 				}
@@ -596,12 +597,12 @@ function BindDevice(data) {
 
 			if (data.deviceId == 23) {
 				if (data.status == 1) {
-					$('#Living .tv-checkbox').append(`<input type="checkbox" class="checkbox" checked  data-id="23"/>`);
+					$('#Living .tv-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox" checked  data-id="23"/>`);
 					$('#Living .tv-checkbox').append(`<div class="checkbox-btn"></div>`);
 					$('#Living .tv-checkbox').append(` <div class="checkbox-layer" ></div>`);
 				}
 				else {
-					$('#Living .tv-checkbox').append(`<input type="checkbox" class="checkbox"  data-id="23"/>`);
+					$('#Living .tv-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox"  data-id="23"/>`);
 					$('#Living .tv-checkbox').append(`<div class="checkbox-btn" ></div>`);
 					$('#Living .tv-checkbox').append(`<div class="checkbox-layer" ></div>`);
 				}
@@ -609,12 +610,12 @@ function BindDevice(data) {
 			}
 			else if (data.deviceId == 24) {
 				if (data.status == 1) {
-					$('#Living .door-checkbox').append(`<input type="checkbox" class="checkbox" checked  data-id="24"/>`);
+					$('#Living .door-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox" checked  data-id="24"/>`);
 					$('#Living .door-checkbox').append(`<div class="checkbox-btn-door"></div>`);
 					$('#Living .door-checkbox').append(` <div class="checkbox-layer" ></div>`);
 				}
 				else {
-					$('#Living .door-checkbox').append(`<input type="checkbox" class="checkbox"  data-id="24"/>`);
+					$('#Living .door-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox"  data-id="24"/>`);
 					$('#Living .door-checkbox').append(`<div class="checkbox-btn-door" ></div>`);
 					$('#Living .door-checkbox').append(`<div class="checkbox-layer" ></div>`);
 				}
@@ -830,22 +831,22 @@ function BindDevice(data) {
 		else if (data.deviceId == 31 || data.deviceId == 29 || data.deviceId == 32) {
 			if (data.deviceId == 31) {
 				if (data.status == 1) {
-					$('#storageLight').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox" id="flexSwitchCheckChecked" data-id="31" checked />`);
+					$('#storageLight').append(`<input class="form-check-input send-checkbox input-checkbox mb-2" type="checkbox" id="flexSwitchCheckChecked" data-id="31" checked />`);
 					$('#storageLight').append(` <label class="form-check-label label-checkbox fw-bold"  for="flexSwitchCheckChecked" data-id="31"> On  </label>`);
 				}
 				else {
-					$('#storageLight').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox" id="flexSwitchCheckChecked" data-id="31"/>`);
+					$('#storageLight').append(`<input class="form-check-input send-checkbox input-checkbox mb-2" type="checkbox" id="flexSwitchCheckChecked" data-id="31"/>`);
 					$('#storageLight').append(`<label class="form-check-label label-checkbox fw-bold"  for="flexSwitchCheckChecked" data-id="31"> Off  </label>`);
 				}
 
 			}
 			else if (data.deviceId == 32) {
 				if (data.status == 1) {
-					$('#storageDoor').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox"  data-id="32" checked />`);
+					$('#storageDoor').append(`<input class="form-check-input send-checkbox input-checkbox mb-2" type="checkbox"  data-id="32" checked />`);
 					$('#storageDoor').append(` <label class="form-check-label label-checkbox fw-bold"   data-id="32" > Open  </label>`);
 				}
 				else {
-					$('#storageDoor').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox" id="flexSwitchCheckChecked" data-id="32"/>`);
+					$('#storageDoor').append(`<input class="form-check-input send-checkbox input-checkbox mb-2" type="checkbox" id="flexSwitchCheckChecked" data-id="32"/>`);
 					$('#storageDoor').append(` <label class="form-check-label label-checkbox fw-bold"  for="flexSwitchCheckChecked" data-id="32" > Close  </label>`);
 				}
 
@@ -859,12 +860,12 @@ function BindDevice(data) {
 
 			if (data.deviceId == 33) {
 				if (data.status == 1) {
-					$('#Office .tv-checkbox').append(`<input type="checkbox" class="checkbox" checked  data-id="33"/>`);
+					$('#Office .tv-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox" checked  data-id="33"/>`);
 					$('#Office .tv-checkbox').append(`<div class="checkbox-btn"></div>`);
 					$('#Office .tv-checkbox').append(` <div class="checkbox-layer" ></div>`);
 				}
 				else {
-					$('#Office .tv-checkbox').append(`<input type="checkbox" class="checkbox"  data-id="33"/>`);
+					$('#Office .tv-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox"  data-id="33"/>`);
 					$('#Office .tv-checkbox').append(`<div class="checkbox-btn" ></div>`);
 					$('#Office .tv-checkbox').append(`<div class="checkbox-layer" ></div>`);
 				}
@@ -872,12 +873,12 @@ function BindDevice(data) {
 			}
 			else if (data.deviceId == 34) {
 				if (data.status == 1) {
-					$('#Office .door-checkbox').append(`<input type="checkbox" class="checkbox" checked  data-id="34"/>`);
+					$('#Office .door-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox" checked  data-id="34"/>`);
 					$('#Office .door-checkbox').append(`<div class="checkbox-btn-door"></div>`);
 					$('#Office .door-checkbox').append(` <div class="checkbox-layer" ></div>`);
 				}
 				else {
-					$('#Office .door-checkbox').append(`<input type="checkbox" class="checkbox"  data-id="34"/>`);
+					$('#Office .door-checkbox').append(`<input type="checkbox" class="checkbox send-checkbox"  data-id="34"/>`);
 					$('#Office .door-checkbox').append(`<div class="checkbox-btn-door" ></div>`);
 					$('#Office .door-checkbox').append(`<div class="checkbox-layer" ></div>`);
 				}
@@ -988,22 +989,22 @@ function BindDevice(data) {
 		else if (data.deviceId == 41 || data.deviceId == 42) {
 			if (data.deviceId == 41) {
 				if (data.status == 1) {
-					$('#garageDoor').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox"  data-id="41" checked />`);
+					$('#garageDoor').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox send-checkbox"  data-id="41" checked />`);
 					$('#garageDoor').append(` <label class="form-check-label label-checkbox fw-bold"   data-id="41" > Open  </label>`);
 				}
 				else {
-					$('#garageDoor').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox" id="flexSwitchCheckChecked" data-id="41"/>`);
+					$('#garageDoor').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox send-checkbox" id="flexSwitchCheckChecked" data-id="41"/>`);
 					$('#garageDoor').append(` <label class="form-check-label label-checkbox fw-bold"  for="flexSwitchCheckChecked" data-id="41" > Close  </label>`);
 				}
 
 			}
 			else if (data.deviceId == 42) {
 				if (data.status == 1) {
-					$('#garageLight').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox" id="flexSwitchCheckChecked" data-id="42" checked />`);
+					$('#garageLight').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox send-checkbox" id="flexSwitchCheckChecked" data-id="42" checked />`);
 					$('#garageLight').append(` <label class="form-check-label label-checkbox fw-bold"  for="flexSwitchCheckChecked" data-id="42"> On  </label>`);
 				}
 				else {
-					$('#garageLight').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox" id="flexSwitchCheckChecked" data-id="42"/>`);
+					$('#garageLight').append(`<input class="form-check-input input-checkbox mb-2" type="checkbox send-checkbox" id="flexSwitchCheckChecked" data-id="42"/>`);
 					$('#garageLight').append(`<label class="form-check-label label-checkbox fw-bold"  for="flexSwitchCheckChecked" data-id="42"> Off  </label>`);
 				}
 

@@ -151,7 +151,7 @@
          $(document).on('change', '.form-check-input', function () {
 
             $.ajax({
-                url: '@Url.Action("SendData", "Dashboard")',
+                url: '@Url.Action("SendCheckboxData", "Home")',
                 type: "Post",
                 data: {
                     checkValue: $(this).is(':checked'),
